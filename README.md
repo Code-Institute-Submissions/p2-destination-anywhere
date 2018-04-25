@@ -106,11 +106,11 @@ You'll want help your users:
 
 #### Wireframes and Mockups
 
-![Wireframe 1](https://bit.ly/2KcOsWt)
+![Wireframe 1](https://raw.githubusercontent.com/sarahloh/p2-destination-anywhere/master/assets/wireframes/wireframe-1.JPG)
 
-![Wireframe 2](https://bit.ly/2qYHnA0)
+![Wireframe 2](https://raw.githubusercontent.com/sarahloh/p2-destination-anywhere/master/assets/wireframes/wireframe-2.JPG)
 
-![Wireframe 3](https://bit.ly/2vMgq8f)
+![Wireframe 3](https://raw.githubusercontent.com/sarahloh/p2-destination-anywhere/master/assets/wireframes/wireframe-3.JPG)
 
 ### Deployed to Github Pages
 <!--
