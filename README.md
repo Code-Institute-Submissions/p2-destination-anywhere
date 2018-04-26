@@ -114,6 +114,8 @@ You'll want help your users:
 
 ![Mockup - Mobile](https://raw.githubusercontent.com/sarahloh/p2-destination-anywhere/master/assets/wireframes/mockup-mobile.jpg)
 
+![Mockup - Tablet](https://raw.githubusercontent.com/sarahloh/p2-destination-anywhere/master/assets/wireframes/mockup-tablet.jpg)
+
 ### Deployed to Github Pages
 <!--
 [https://sarahloh.github.io/p2-destination-anywhere/](https://sarahloh.github.io/p2-destination-anywhere/)
