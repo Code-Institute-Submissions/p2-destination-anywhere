@@ -100,7 +100,7 @@ You'll want help your users:
 |-------------------------------------------------------------|-------------------------------------|
 | What will the finished product look like?                   |  |
 |                                                             |  |
-| What colours, typography and design elements will be used?  |  |
+| What colours, typography and design elements will be used?  | @import url('https://fonts.googleapis.com/css?family=Montserrat:300,600&#124;Open+Sans'); |
 |                                                             |  |
 |                                                             |  |
 
@@ -111,6 +111,8 @@ You'll want help your users:
 ![Wireframe 2](https://raw.githubusercontent.com/sarahloh/p2-destination-anywhere/master/assets/wireframes/wireframe-2.JPG)
 
 ![Wireframe 3](https://raw.githubusercontent.com/sarahloh/p2-destination-anywhere/master/assets/wireframes/wireframe-3.JPG)
+
+![Mockup - Mobile](https://raw.githubusercontent.com/sarahloh/p2-destination-anywhere/master/assets/wireframes/mockup-mobile.jpg)
 
 ### Deployed to Github Pages
 <!--
