@@ -112,9 +112,17 @@ You'll want help your users:
 
 ![Wireframe 3](https://raw.githubusercontent.com/sarahloh/p2-destination-anywhere/master/assets/wireframes/wireframe-3.JPG)
 
+*Mobile*
+
 ![Mockup - Mobile](https://raw.githubusercontent.com/sarahloh/p2-destination-anywhere/master/assets/wireframes/mockup-mobile.jpg)
 
+*Tablet*
+
 ![Mockup - Tablet](https://raw.githubusercontent.com/sarahloh/p2-destination-anywhere/master/assets/wireframes/mockup-tablet.jpg)
+
+*Desktop*
+
+![Mockup - Desktop](https://raw.githubusercontent.com/sarahloh/p2-destination-anywhere/master/assets/wireframes/mockup-desktop.jpg)
 
 ### Deployed to Github Pages
 <!--
