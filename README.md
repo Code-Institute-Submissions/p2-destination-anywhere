@@ -36,10 +36,10 @@ You'll want help your users:
 
 - [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
 - [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3)
-- [Bootstrap v3.3.7](https://getbootstrap.com/docs/3.3/)
+- [Bootstrap v4.1.0](https://getbootstrap.com/docs/4.1/)
 - - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css
 - - https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js
-- [Font Awesome v4.7.0](https://fontawesome.com/v4.7.0/)
+- [Font Awesome v5.0.10](https://fontawesome.com/)
 - - https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
 - [jQuery v3.3.1](https://jquery.com)
 - - https://code.jquery.com/jquery-3.3.1.min.js
