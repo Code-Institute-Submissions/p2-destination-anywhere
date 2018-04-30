@@ -1,4 +1,17 @@
 /*-----------------------------------Buttons*/
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,600&#124;Open+Sans");
+body {
+  font-family: 'Open Sans', sans-serif; }
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase; }
+
 .button-explore-cities {
   background-color: #dbb68f; }
 
