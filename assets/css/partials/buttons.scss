@@ -1,3 +1,10 @@
+.btn-home-explore {
+    @include homeButton("../images/home-explore.jpg");
+}
+.btn-home-navigate {
+    @include homeButton("../images/home-navigate.jpg");
+}
+
 .button-explore-cities {
     @include exploreButton($btn_cities);
 }

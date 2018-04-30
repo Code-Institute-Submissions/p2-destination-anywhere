@@ -1,4 +1,3 @@
-
 /*-----------------------------------General*/
 
 a:hover {
@@ -6,29 +5,51 @@ a:hover {
     text-decoration: none;
 }
 
-.full-h {
+.full-vh {
     height: 100vh;
     min-height: 100vh;
 }
 
 .h-less-nav {
-    height: 100% - $nav-h;
-    // margin-top: $nav-h;
+    height: 100% - $nav-h; // margin-top: $nav-h;
 }
 
 /*-----------------------------------Header*/
 
-/*---------------------------Nav*/
-
 header {
     height: $nav-h;
+    .navbar .form-control {
+        width: 80%;
+        font-size: 0.8rem;
+        line-height: 0.8rem;
+        padding: .2rem .75rem;
+        text-transform: uppercase;
+        text-align: center;
+    }
 }
 
-.navbar .form-control {
-    width: 80%;
-    font-size: 0.8rem;
-    line-height: 0.8rem;
-    padding: .2rem .75rem;
-    text-transform: uppercase;
-    text-align: center;
+/*-----------------------------------Home*/
+
+.home {
+    .logo>img {
+        position: fixed;
+        left: 50%;
+        top: 48.5%;
+        transform: translate(-50%);
+        z-index: 1;
+    }
+    .overlay {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    a>span:nth-child(2) {
+        top: -50%;
+    }
 }
+
+/*-----------------------------------Explore*/
+
+/*-----------------------------------Navigate*/
+
+/*-----------------------------------Discover*/
+
+/*-----------------------------------Venue*/

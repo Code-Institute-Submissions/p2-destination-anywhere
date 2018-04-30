@@ -1,9 +1,20 @@
-@mixin exploreButton ($color) {
-    background-color: $color;
+%flatButton {
     color: white;
-    font-size: 24px;
     font-family: 'Monserrat', sans-serif;
-    font-weight: 300;
     text-transform: uppercase;
     text-align: center;
+}
+
+@mixin exploreButton ($color) {
+    @extend %flatButton;
+    font-size: 24px;
+    font-weight: 300;
+    background-color: $color;
+}
+
+@mixin homeButton ($image) {
+    @extend %flatButton;
+    font-size: 32px;
+    background-image: url(#{$image});
+    background-size: cover;
 }

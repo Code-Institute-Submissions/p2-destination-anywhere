@@ -28,48 +28,48 @@ h5 {
   font-weight: 300;
   text-transform: uppercase; }
 
-.button-explore-cities {
-  background-color: #dbb68f;
+.btn-home-explore, .btn-home-navigate, .button-explore-cities, .button-explore-culture, .button-explore-food, .button-explore-shopping {
   color: white;
-  font-size: 24px;
   font-family: 'Monserrat', sans-serif;
-  font-weight: 300;
   text-transform: uppercase;
   text-align: center; }
+
+.btn-home-explore {
+  font-size: 32px;
+  background-image: url(../images/home-explore.jpg);
+  background-size: cover; }
+
+.btn-home-navigate {
+  font-size: 32px;
+  background-image: url(../images/home-navigate.jpg);
+  background-size: cover; }
+
+.button-explore-cities {
+  font-size: 24px;
+  font-weight: 300;
+  background-color: #dbb68f; }
 
 .button-explore-culture {
-  background-color: #bb7e5d;
-  color: white;
   font-size: 24px;
-  font-family: 'Monserrat', sans-serif;
   font-weight: 300;
-  text-transform: uppercase;
-  text-align: center; }
+  background-color: #bb7e5d; }
 
 .button-explore-food {
-  background-color: #8e7563;
-  color: white;
   font-size: 24px;
-  font-family: 'Monserrat', sans-serif;
   font-weight: 300;
-  text-transform: uppercase;
-  text-align: center; }
+  background-color: #8e7563; }
 
 .button-explore-shopping {
-  background-color: #09989e;
-  color: white;
   font-size: 24px;
-  font-family: 'Monserrat', sans-serif;
   font-weight: 300;
-  text-transform: uppercase;
-  text-align: center; }
+  background-color: #09989e; }
 
 /*-----------------------------------General*/
 a:hover {
   color: white;
   text-decoration: none; }
 
-.full-h {
+.full-vh {
   height: 100vh;
   min-height: 100vh; }
 
@@ -77,16 +77,31 @@ a:hover {
   height: 88%; }
 
 /*-----------------------------------Header*/
-/*---------------------------Nav*/
 header {
   height: 12%; }
+  header .navbar .form-control {
+    width: 80%;
+    font-size: 0.8rem;
+    line-height: 0.8rem;
+    padding: .2rem .75rem;
+    text-transform: uppercase;
+    text-align: center; }
 
-.navbar .form-control {
-  width: 80%;
-  font-size: 0.8rem;
-  line-height: 0.8rem;
-  padding: .2rem .75rem;
-  text-transform: uppercase;
-  text-align: center; }
+/*-----------------------------------Home*/
+.home .logo > img {
+  position: fixed;
+  left: 50%;
+  top: 48.5%;
+  transform: translate(-50%);
+  z-index: 1; }
+.home .overlay {
+  background-color: rgba(0, 0, 0, 0.5); }
+.home a > span:nth-child(2) {
+  top: -50%; }
+
+/*-----------------------------------Explore*/
+/*-----------------------------------Navigate*/
+/*-----------------------------------Discover*/
+/*-----------------------------------Venue*/
 
 /*# sourceMappingURL=main.css.map */

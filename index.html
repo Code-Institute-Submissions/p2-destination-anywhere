@@ -16,10 +16,10 @@
 
 <body>
     <!-- site-wrapper -->
-    <div class="container-fluid site-wrapper full-h px-0">
+    <div class="container-fluid site-wrapper full-vh px-0">
 
         <!-- HEADER -->
-        <header>
+        <header class="d-none">
             <nav class="navbar fixed-top navbar-dark bg-dark text-center">
                 <a class="w-100" href="#">
                     <img src="assets/images/logo.svg" height="20" alt="logo">
@@ -33,21 +33,30 @@
         </header>
 
         <!-- HOME -->
-        <section id="home" class="home bg-color-home d-none">
-            <div class="container-fluid full-height">
-                <div class="row h-100">
-                    <div class="col-12 d-sm-none text-center bg-color-explore">
-                        <a href="#explore" class="button-home d-inline-block h-100">button:explore</a>
+        <section id="home" class="home bg-color-home">
+            <div class="container-fluid full-vh px-0">
+                <div class="logo">
+                    <img src="assets/images/logo.svg" height="20" alt="logo">
+                </div>
+                <div class="row no-gutters h-100">
+                    <div class="col-12 d-sm-none">
+                        <a href="#explore" class="btn-home-explore d-block h-100">
+                            <span class="overlay d-inline-block h-100 w-100 align-middle"></span>
+                            <span class="d-inline-block position-relative align-middle">explore</span>
+                        </a>
                     </div>
-                    <div class="col-12 text-center bg-color-navigate">
-                        <a href="#navigate" class="button-home d-block h-100">button:navigate</a>
+                    <div class="col-12">
+                        <a href="#navigate" class="btn-home-navigate d-block h-100">
+                            <span class="overlay d-inline-block h-100 w-100 align-middle"></span>
+                            <span class="d-inline-block position-relative align-middle">navigate</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- EXPLORE -->
-        <section id="explore" class="explore bg-color-explore h-less-nav">
+        <section id="explore" class="explore bg-color-explore h-less-nav d-none">
             <div class="container-fluid h-100 px-0">
                 <div class="row no-gutters h-100">
                     <div class="col-12">
