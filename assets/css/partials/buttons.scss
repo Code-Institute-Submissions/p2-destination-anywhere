@@ -1,12 +1,15 @@
 .button-explore-cities {
-    background-color: $btn-cities;
+    @include exploreButton($btn_cities);
 }
+
 .button-explore-culture {
-    background-color: $btn-culture;
+    @include exploreButton($btn_culture);
 }
+
 .button-explore-food {
-    background-color: $btn-food;
+    @include exploreButton($btn_food);
 }
+
 .button-explore-shopping {
-    background-color: $btn-shopping;
+    @include exploreButton($btn_shopping);
 }

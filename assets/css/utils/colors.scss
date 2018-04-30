@@ -1,6 +1,28 @@
+/*-----------------------------------Background colors*/
+
+.bg-color-home {
+    background-color: white;
+}
+
+.bg-color-explore {
+    background-color: lightgray;
+}
+
+.bg-color-navigate {
+    background-color: white;
+}
+
+.bg-color-discover {
+    background-color: lightgray;
+}
+
+.bg-color-venue {
+    background-color: lightpink;
+}
+
 /*-----------------------------------Buttons*/
 
-$btn-cities: rgba(219, 182, 143, 1);
-$btn-culture: rgba(187, 126, 93, 1);
-$btn-food: rgba(142, 117, 99, 1);
-$btn-shopping: rgba(9, 152, 158, 1);
+$btn_cities: rgba(219, 182, 143, 1);
+$btn_culture: rgba(187, 126, 93, 1);
+$btn_food: rgba(142, 117, 99, 1);
+$btn_shopping: rgba(9, 152, 158, 1);

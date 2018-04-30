@@ -1,30 +1,5 @@
-/*-----------------------------------Buttons*/
-@import url("https://fonts.googleapis.com/css?family=Montserrat:300,600&#124;Open+Sans");
-body {
-  font-family: 'Open Sans', sans-serif; }
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  text-transform: uppercase; }
-
-.button-explore-cities {
-  background-color: #dbb68f; }
-
-.button-explore-culture {
-  background-color: #bb7e5d; }
-
-.button-explore-food {
-  background-color: #8e7563; }
-
-.button-explore-shopping {
-  background-color: #09989e; }
-
 /*-----------------------------------Background colors*/
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,600&#124;Open+Sans");
 .bg-color-home {
   background-color: white; }
 
@@ -40,9 +15,78 @@ h5 {
 .bg-color-venue {
   background-color: lightpink; }
 
+/*-----------------------------------Buttons*/
+body {
+  font-family: 'Open Sans', sans-serif; }
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase; }
+
+.button-explore-cities {
+  background-color: #dbb68f;
+  color: white;
+  font-size: 24px;
+  font-family: 'Monserrat', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: center; }
+
+.button-explore-culture {
+  background-color: #bb7e5d;
+  color: white;
+  font-size: 24px;
+  font-family: 'Monserrat', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: center; }
+
+.button-explore-food {
+  background-color: #8e7563;
+  color: white;
+  font-size: 24px;
+  font-family: 'Monserrat', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: center; }
+
+.button-explore-shopping {
+  background-color: #09989e;
+  color: white;
+  font-size: 24px;
+  font-family: 'Monserrat', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: center; }
+
 /*-----------------------------------General*/
-.full-height {
+a:hover {
+  color: white;
+  text-decoration: none; }
+
+.full-h {
   height: 100vh;
   min-height: 100vh; }
+
+.h-less-nav {
+  height: 88%; }
+
+/*-----------------------------------Header*/
+/*---------------------------Nav*/
+header {
+  height: 12%; }
+
+.navbar .form-control {
+  width: 80%;
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+  padding: .2rem .75rem;
+  text-transform: uppercase;
+  text-align: center; }
 
 /*# sourceMappingURL=main.css.map */

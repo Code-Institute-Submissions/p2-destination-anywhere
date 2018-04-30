@@ -8,77 +8,111 @@
     <title>Destination Anywhere</title>
 
     <link rel="stylesheet" href="assets/css/vendors/bootstrap.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/main.css">
 
 </head>
 
 <body>
-    <!-- HOME -->
-    <section id="home" class="home bg-color-home">
-        <div class="container-fluid full-height">
-            <div class="row h-100">
-                <div class="col-12 d-sm-none text-center bg-color-explore">
-                    <a href="#explore" class="button-home d-inline-block h-100">button:explore</a>
-                </div>
-                <div class="col-12 text-center bg-color-navigate">
-                    <a href="#navigate" class="button-home d-block h-100">button:navigate</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- site-wrapper -->
+    <div class="container-fluid site-wrapper full-h px-0">
 
-    <!-- EXPLORE -->
-    <section id="explore" class="explore bg-color-explore">
-        <div class="container-fluid px-0">
-            <div class="row full-height">
-                <div class="col-12">
-                    <a href="#navigate" class="button-explore-cities d-block h-100">button:all cities</a>
-                </div>
-                <div class="col-12">
-                    <a href="#navigate" class="button-explore-culture d-block h-100">button:top 10 culture</a>
-                </div>
-                <div class="col-12">
-                    <a href="#navigate" class="button-explore-food d-block h-100">button:top 10 food</a>
-                </div>
-                <div class="col-12">
-                    <a href="#navigate" class="button-explore-shopping d-block h-100">button:top 10 shopping</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- HEADER -->
+        <header>
+            <nav class="navbar fixed-top navbar-dark bg-dark text-center">
+                <a class="w-100" href="#">
+                    <img src="assets/images/logo.svg" height="20" alt="logo">
+                </a>
+                <form class="form-inline w-100 pt-3 d-block">
+                    <!-- <i class="fas fa-search"></i> -->
+                    <input class="form-control mx-auto text-uppercase" type="search" placeholder="find a city" aria-label="Search">
+                </form>
+                <h3 class="city-name navbar-text mx-auto mb-0 pb-0 d-none">Paris</h3>
+            </nav>
+        </header>
 
-    <!-- NAVIGATE -->
-    <section id="navigate" class="navigate bg-color-navigate">
-        <div class="container-fluid">
-            <div class="row full-height">
-                <div class="col">
-                    <h1 class="text-center">section:navigate</h1>
+        <!-- HOME -->
+        <section id="home" class="home bg-color-home d-none">
+            <div class="container-fluid full-height">
+                <div class="row h-100">
+                    <div class="col-12 d-sm-none text-center bg-color-explore">
+                        <a href="#explore" class="button-home d-inline-block h-100">button:explore</a>
+                    </div>
+                    <div class="col-12 text-center bg-color-navigate">
+                        <a href="#navigate" class="button-home d-block h-100">button:navigate</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- DISCOVER -->
-    <section id="discover" class="discover bg-color-discover">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-                    <h1 class="text-center">section:discover</h1>
+        <!-- EXPLORE -->
+        <section id="explore" class="explore bg-color-explore h-less-nav">
+            <div class="container-fluid h-100 px-0">
+                <div class="row no-gutters h-100">
+                    <div class="col-12">
+                        <a href="#navigate" class="button-explore-cities d-block h-100">
+                            <span class="d-inline-block h-100 align-middle"></span>
+                            <span class="d-inline-block align-middle">all cities</span>
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <a href="#navigate" class="button-explore-culture d-block h-100">
+                            <span class="d-inline-block h-100 align-middle"></span>
+                            <span class="d-inline-block align-middle">top 10 culture</span>
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <a href="#navigate" class="button-explore-food d-block h-100">
+                            <span class="d-inline-block h-100 align-middle"></span>
+                            <span class="d-inline-block align-middle">top 10 food</span>
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <a href="#navigate" class="button-explore-shopping d-block h-100">
+                            <span class="d-inline-block h-100 align-middle"></span>
+                            <span class="d-inline-block align-middle">top 10 shopping</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- VENUE -->
-    <section id="venue" class="venue bg-color-venue">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-                    <h1 class="text-center">section:venue</h1>
+        <!-- NAVIGATE -->
+        <section id="navigate" class="navigate bg-color-navigate d-none">
+            <div class="container-fluid">
+                <div class="row full-height">
+                    <div class="col">
+                        <h1 class="text-center">section:navigate</h1>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- DISCOVER -->
+        <section id="discover" class="discover bg-color-discover d-none">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="text-center">section:discover</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VENUE -->
+        <section id="venue" class="venue bg-color-venue d-none">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="text-center">section:venue</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <!-- /site-wrapper -->
 
 
 </body>
