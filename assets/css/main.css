@@ -34,6 +34,20 @@ h5 {
   text-transform: uppercase;
   text-align: center; }
 
+.header {
+  height: 12%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1; }
+  .header .navbar .form-control {
+    width: 80%;
+    font-size: 0.8rem;
+    line-height: 0.8rem;
+    padding: .2rem .75rem;
+    text-transform: uppercase;
+    text-align: center; }
+
 .btn-home-explore {
   font-size: 32px;
   background-image: url(../images/home-explore.jpg);
@@ -76,16 +90,10 @@ a:hover {
 .h-less-nav {
   height: 88%; }
 
-/*-----------------------------------Header*/
-header {
-  height: 12%; }
-  header .navbar .form-control {
-    width: 80%;
-    font-size: 0.8rem;
-    line-height: 0.8rem;
-    padding: .2rem .75rem;
-    text-transform: uppercase;
-    text-align: center; }
+.valign-b-center {
+  position: relative;
+  top: 50%;
+  left: 0; }
 
 /*-----------------------------------Home*/
 .home .logo > img {

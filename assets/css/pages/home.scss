@@ -11,21 +11,13 @@ a:hover {
 }
 
 .h-less-nav {
-    height: 100% - $nav-h; // margin-top: $nav-h;
+    height: 100% - $nav-h;
 }
 
-/*-----------------------------------Header*/
-
-header {
-    height: $nav-h;
-    .navbar .form-control {
-        width: 80%;
-        font-size: 0.8rem;
-        line-height: 0.8rem;
-        padding: .2rem .75rem;
-        text-transform: uppercase;
-        text-align: center;
-    }
+.valign-b-center {
+    position: relative;
+    top: 50%;
+    left: 0;
 }
 
 /*-----------------------------------Home*/

@@ -19,7 +19,7 @@
     <div class="container-fluid site-wrapper full-vh px-0">
 
         <!-- HEADER -->
-        <header class="d-none">
+        <header class="header">
             <nav class="navbar fixed-top navbar-dark bg-dark text-center">
                 <a class="w-100" href="#">
                     <img src="assets/images/logo.svg" height="20" alt="logo">
@@ -33,7 +33,7 @@
         </header>
 
         <!-- HOME -->
-        <section id="home" class="home bg-color-home">
+        <section id="home" class="home bg-color-home d-none">
             <div class="container-fluid full-vh px-0">
                 <div class="logo">
                     <img src="assets/images/logo.svg" height="20" alt="logo">
@@ -48,7 +48,7 @@
                     <div class="col-12">
                         <a href="#navigate" class="btn-home-navigate d-block h-100">
                             <span class="overlay d-inline-block h-100 w-100 align-middle"></span>
-                            <span class="d-inline-block position-relative align-middle">navigate</span>
+                            <span class="d-sm-none d-inline-block position-relative align-middle">navigate</span>
                         </a>
                     </div>
                 </div>
@@ -88,11 +88,13 @@
         </section>
 
         <!-- NAVIGATE -->
-        <section id="navigate" class="navigate bg-color-navigate d-none">
-            <div class="container-fluid">
-                <div class="row full-height">
-                    <div class="col">
-                        <h1 class="text-center">section:navigate</h1>
+        <section id="navigate" class="navigate h-100 bg-color-navigate">
+            <div class="container-fluid h-100 px-0">
+                <div class="row h-100 no-gutters">
+                    <div class="col h-100 mt-50">
+                        <div class="map bg-info h-100">
+                            <h2 class="text-center valign-b-center">section:navigate</h2>
+                        </div>
                     </div>
                 </div>
             </div>

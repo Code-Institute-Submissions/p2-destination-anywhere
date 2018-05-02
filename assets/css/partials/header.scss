@@ -1,0 +1,15 @@
+.header {
+    height: $nav-h;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    .navbar .form-control {
+        width: 80%;
+        font-size: 0.8rem;
+        line-height: 0.8rem;
+        padding: .2rem .75rem;
+        text-transform: uppercase;
+        text-align: center;
+    }
+}
