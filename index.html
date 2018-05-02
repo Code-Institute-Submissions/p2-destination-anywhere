@@ -8,9 +8,12 @@
     <title>Destination Anywhere</title>
 
     <link rel="stylesheet" href="assets/css/vendors/bootstrap.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
-        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
+
+    <script src="assets/js/vendors/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/vendors/bootstrap.min.js"></script>
+    <script src="assets/js/script.js"></script>
 
 </head>
 
@@ -88,11 +91,11 @@
         </section>
 
         <!-- NAVIGATE -->
-        <section id="navigate" class="navigate h-100 bg-color-navigate">
+        <section id="navigate" class="navigate h-100">
             <div class="container-fluid h-100 px-0">
                 <div class="row h-100 no-gutters">
-                    <div class="col h-100 mt-50">
-                        <div class="map bg-info h-100">
+                    <div class="col h-100">
+                        <div class="map h-100 bg-info">
                             <h2 class="text-center valign-b-center">section:navigate</h2>
                         </div>
                     </div>
@@ -101,11 +104,28 @@
         </section>
 
         <!-- DISCOVER -->
-        <section id="discover" class="discover bg-color-discover d-none">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col">
-                        <h1 class="text-center">section:discover</h1>
+        <section id="discover" class="discover fixed-bottom">
+            <div class="legend bg-dark text-light pt-2">
+                <div class="container-fluid px-0">
+                    <div class="row no-gutters pb-2">
+                        <div class="col-12 col-sm pl-3">
+                            <button type="button" class="btn legend-btn legend-btn-attractions">
+                                <i class="fa fa-check"></i>
+                            </button>
+                            <span class="legend-label">Attractions</span>
+                        </div>
+                        <div class="col-12 col-sm pl-3">
+                            <button type="button" class="btn legend-btn legend-btn-accommodation">
+                                <i class="fa fa-check"></i>
+                            </button>
+                            <span class="legend-label">Accommodation</span>
+                        </div>
+                        <div class="col-12 col-sm pl-3">
+                            <button type="button" class="btn legend-btn legend-btn-restaurants">
+                                <i class="fa fa-check"></i>
+                            </button>
+                            <span class="legend-label">Restuarants</span>
+                        </div>
                     </div>
                 </div>
             </div>

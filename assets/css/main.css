@@ -16,6 +16,7 @@
   background-color: lightpink; }
 
 /*-----------------------------------Buttons*/
+/*-----------------------------------Legend*/
 body {
   font-family: 'Open Sans', sans-serif; }
 
@@ -48,6 +49,7 @@ h5 {
     text-transform: uppercase;
     text-align: center; }
 
+/*-----------------------------------Explore*/
 .btn-home-explore {
   font-size: 32px;
   background-image: url(../images/home-explore.jpg);
@@ -77,6 +79,30 @@ h5 {
   font-size: 24px;
   font-weight: 300;
   background-color: #09989e; }
+
+/*-----------------------------------Legend*/
+.legend-btn {
+  width: 25px;
+  height: 25px;
+  padding: 2px;
+  margin: 5px 10px; }
+
+.legend-btn:focus {
+  box-shadow: none; }
+
+.legend-btn-attractions {
+  background-color: #09989e; }
+
+.legend-btn-accommodation {
+  background-color: #cc3333; }
+
+.legend-btn-restaurants {
+  background-color: #8b40bf; }
+
+.legend-btn i {
+  font-size: 14px;
+  position: relative;
+  top: -3px; }
 
 /*-----------------------------------General*/
 a:hover {
