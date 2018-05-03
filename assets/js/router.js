@@ -27,6 +27,11 @@ $(document).ready(function() {
         showSections(['venue']);
     });
 
+    // show venue
+    $('.close-icon').click(function () {
+        hideSections(['venue']);
+    });
+
 });
 
 function showSections(sections) {

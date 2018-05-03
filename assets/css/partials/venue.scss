@@ -1,6 +1,13 @@
 /*-----------------------------------Venue*/
 
 .venue {
+    .close-icon {
+        float: right;
+        margin-top: 2px;
+    }
+    .close-icon:hover {
+        cursor: pointer;
+    }
     p {
         margin-bottom: 3px;
     }

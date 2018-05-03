@@ -112,6 +112,11 @@ h5 {
   font-size: 11px; }
 
 /*-----------------------------------Venue*/
+.venue .close-icon {
+  float: right;
+  margin-top: 2px; }
+.venue .close-icon:hover {
+  cursor: pointer; }
 .venue p {
   margin-bottom: 3px; }
 .venue p.small {
