@@ -14,6 +14,7 @@
     <script src="assets/js/vendors/jquery-3.3.1.min.js"></script>
     <script src="assets/js/vendors/bootstrap.min.js"></script>
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/router.js"></script>
 
 </head>
 
@@ -22,21 +23,21 @@
     <div class="container-fluid site-wrapper full-vh px-0">
 
         <!-- header -->
-        <header class="header">
+        <header class="header w-100 d-none">
             <nav class="navbar fixed-top navbar-dark bg-dark text-center">
                 <a class="w-100" href="#">
                     <img src="assets/images/logo.svg" height="18" alt="logo">
                 </a>
-                <form class="form-inline w-100 pt-2 d-block">
+                <form class="search-form form-inline w-100 pt-2">
                     <input class="city-search form-control mx-auto text-uppercase" type="search" placeholder="&#xF002; find a city" aria-label="Search">
                 </form>
-                <h3 class="city-name navbar-text mx-auto mb-0 pb-0 d-none">Paris</h3>
+                <h4 class="city-name navbar-text mx-auto mb-0 pb-0 d-none">Paris</h4>
             </nav>
         </header>
         <!-- /header -->
 
         <!-- HOME -->
-        <section id="home" class="home bg-color-home d-none">
+        <section id="home" class="home bg-color-home">
             <div class="container-fluid full-vh px-0">
                 <div class="logo">
                     <img src="assets/images/logo.svg" height="20" alt="logo">
@@ -93,12 +94,13 @@
         <!-- /EXPLORE -->
 
         <!-- NAVIGATE -->
-        <section id="navigate" class="navigate h-100">
+        <section id="navigate" class="navigate h-100 d-none">
             <div class="container-fluid h-100 px-0">
                 <div class="row h-100 no-gutters">
                     <div class="col h-100">
                         <div class="map h-100 bg-info">
-                            <h2 class="text-center valign-b-center">section:navigate</h2>
+                            <h4 class="text-center valign-b-center map-marker-city">city marker</h4>
+                            <h4 class="text-center valign-b-center map-marker-venue">venue marker</h4>
                         </div>
                     </div>
                 </div>
@@ -107,7 +109,7 @@
         <!-- /NAVIGATE -->
 
         <!-- DISCOVER -->
-        <section id="discover" class="discover fixed-bottom">
+        <section id="discover" class="discover fixed-bottom d-none">
             <!-- legend -->
             <div class="legend bg-dark text-light pt-1">
                 <div class="container-fluid px-0">
@@ -135,7 +137,7 @@
             </div>
             <!-- /legend -->
             <!-- venue -->
-            <div id="venue" class="venue bg-light">
+            <div id="venue" class="venue bg-light d-none">
                 <div class="container-fluid px-0">
                     <div class="row no-gutters d-flex align-items-stretch">
                         <!-- venue-image -->
@@ -204,12 +206,8 @@
         </section>
         <!-- /DISCOVER -->
 
-
-
     </div>
     <!-- /site-wrapper -->
-
-
 </body>
 
 </html>

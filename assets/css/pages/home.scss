@@ -12,6 +12,8 @@ a:hover {
 
 .h-less-nav {
     height: 100% - $nav-h;
+    position: relative;
+    top: $nav-h
 }
 
 .valign-b-center {

@@ -36,7 +36,7 @@ h5 {
   text-align: center; }
 
 .header {
-  height: 12%;
+  height: 9%;
   position: fixed;
   top: 0;
   left: 0;
@@ -133,7 +133,9 @@ a:hover {
   min-height: 100vh; }
 
 .h-less-nav {
-  height: 88%; }
+  height: 91%;
+  position: relative;
+  top: 9%; }
 
 .valign-b-center {
   position: relative;
