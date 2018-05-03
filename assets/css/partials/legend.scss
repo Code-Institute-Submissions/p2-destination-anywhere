@@ -1,0 +1,24 @@
+/*-----------------------------------Legend*/
+
+.legend {
+    .legend-btn:focus {
+        box-shadow: none;
+    }
+    .legend-btn-attractions {
+        @include legendButton($attractions);
+    }
+    .legend-btn-accommodation {
+        @include legendButton($accommodation);
+    }
+    .legend-btn-restaurants {
+        @include legendButton($restaurants);
+    }
+    .btn i {
+        font-size: 11px;
+        position: relative;
+        top: -7px;
+    }
+    .legend-label {
+        font-size: 11px;
+    }
+}

@@ -81,28 +81,32 @@ h5 {
   background-color: #09989e; }
 
 /*-----------------------------------Legend*/
-.legend-btn {
-  width: 25px;
-  height: 25px;
-  padding: 2px;
-  margin: 5px 10px; }
-
-.legend-btn:focus {
+.legend .legend-btn:focus {
   box-shadow: none; }
-
-.legend-btn-attractions {
+.legend .legend-btn-attractions {
+  width: 20px;
+  height: 20px;
+  padding: 2px;
+  margin: 5px 10px;
   background-color: #09989e; }
-
-.legend-btn-accommodation {
+.legend .legend-btn-accommodation {
+  width: 20px;
+  height: 20px;
+  padding: 2px;
+  margin: 5px 10px;
   background-color: #cc3333; }
-
-.legend-btn-restaurants {
+.legend .legend-btn-restaurants {
+  width: 20px;
+  height: 20px;
+  padding: 2px;
+  margin: 5px 10px;
   background-color: #8b40bf; }
-
-.legend-btn i {
-  font-size: 14px;
+.legend .btn i {
+  font-size: 11px;
   position: relative;
-  top: -3px; }
+  top: -7px; }
+.legend .legend-label {
+  font-size: 11px; }
 
 /*-----------------------------------General*/
 a:hover {

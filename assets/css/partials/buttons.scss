@@ -23,34 +23,3 @@
 .button-explore-shopping {
     @include exploreButton($btn_shopping);
 }
-
-/*-----------------------------------Legend*/
-
-.legend-btn {
-    width: 25px;
-    height: 25px;
-    padding: 2px;
-    margin: 5px 10px;
-}
-
-.legend-btn:focus {
-    box-shadow: none;
-}
-
-.legend-btn-attractions {
-    background-color: $attractions;
-}
-
-.legend-btn-accommodation {
-    background-color: $accommodation;
-}
-
-.legend-btn-restaurants {
-    background-color: $restaurants;
-}
-
-.legend-btn i {
-    font-size: 14px;
-    position: relative;
-    top: -3px;
-}
