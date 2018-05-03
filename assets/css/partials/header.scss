@@ -4,12 +4,17 @@
     top: 0;
     left: 0;
     z-index: 1;
+    .navbar {
+        padding: 0.3rem 1rem;
+    }
     .navbar .form-control {
         width: 80%;
-        font-size: 0.8rem;
-        line-height: 0.8rem;
-        padding: .2rem .75rem;
-        text-transform: uppercase;
+        font-size: 0.7rem;
+        line-height: 0.7rem;
+        padding: .1rem .75rem;
         text-align: center;
+    }
+    .city-search {
+       font-family: 'Open Sans', 'FontAwesome';
     }
 }
