@@ -84,22 +84,22 @@ h5 {
 .legend .legend-btn:focus {
   box-shadow: none; }
 .legend .legend-btn-attractions {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   padding: 2px;
-  margin: 5px 10px;
+  margin: 2px 10px;
   background-color: #09989e; }
 .legend .legend-btn-accommodation {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   padding: 2px;
-  margin: 5px 10px;
+  margin: 2px 10px;
   background-color: #cc3333; }
 .legend .legend-btn-restaurants {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   padding: 2px;
-  margin: 5px 10px;
+  margin: 2px 10px;
   background-color: #8b40bf; }
 .legend .btn i {
   font-size: 11px;
