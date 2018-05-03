@@ -43,6 +43,15 @@ h5 {
   z-index: 1; }
   .header .navbar {
     padding: 0.3rem 1rem; }
+  .header .back-icon {
+    position: fixed;
+    left: 10px;
+    color: white;
+    font-size: 1.2rem;
+    width: 25px;
+    height: 25px; }
+  .header .back-icon:hover {
+    cursor: pointer; }
   .header .navbar .form-control {
     width: 80%;
     font-size: 0.7rem;
@@ -114,7 +123,9 @@ h5 {
 /*-----------------------------------Venue*/
 .venue .close-icon {
   float: right;
-  margin-top: 2px; }
+  margin-top: 2px;
+  width: 20px;
+  height: 20px; }
 .venue .close-icon:hover {
   cursor: pointer; }
 .venue p {

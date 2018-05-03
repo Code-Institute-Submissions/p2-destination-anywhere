@@ -7,6 +7,17 @@
     .navbar {
         padding: 0.3rem 1rem;
     }
+    .back-icon {
+        position: fixed;
+        left: 10px;
+        color: white;
+        font-size: 1.2rem;
+        width: 25px;
+        height: 25px;
+    }
+    .back-icon:hover {
+        cursor: pointer;
+    }
     .navbar .form-control {
         width: 80%;
         font-size: 0.7rem;
@@ -15,6 +26,6 @@
         text-align: center;
     }
     .city-search {
-       font-family: 'Open Sans', 'FontAwesome';
+        font-family: 'Open Sans', 'FontAwesome';
     }
 }

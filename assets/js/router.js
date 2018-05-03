@@ -2,37 +2,73 @@ $(document).ready(function() {
 
     // show explore or navigate
     $('.home a').click(function() {
-        var sectionsToShow = [];
-        sectionsToShow.push($(this).attr('href').substr(1));
-        sectionsToShow.push('header');
+        if ($(this).attr('href').substr(1) == "explore") {
+            showExplore();
+        } else {
+            showNavigate();
+        }
 
-        showSections(sectionsToShow);
-        hideSections(['home']);
     });
 
     // show navigate
     $('.explore a').click(function () {
-        hideSections(['explore']);
-        showSections(['navigate']);
+        showNavigate();
     });
 
     // show discover
     $('.map-marker-city').click(function () {
-        showSections(['discover', 'city-name']);
-        hideSections(['search-form']);
+        showDiscover();
     });
 
     // show venue
     $('.map-marker-venue').click(function () {
-        showSections(['venue']);
+        showVenue();
     });
 
-    // show venue
+    // hide venue
     $('.close-icon').click(function () {
-        hideSections(['venue']);
+        hideVenue();
+    });
+
+    $('.back-icon').click(function(){
+        if ($('.search-form').hasClass('d-none')) {
+            showNavigate();
+        } else if ($('.discover').hasClass('d-none') && $('.explore').hasClass('d-none')) {
+            showExplore();
+        } else {
+            showHome();
+        }
     });
 
 });
+
+function showHome() {
+    showSections(['home', 'search-form']);
+    hideSections(['header', 'explore', 'navigate', 'discover', 'city-name']);
+}
+
+function showExplore() {
+    showSections(['header', 'explore', 'search-form', 'back-icon']);
+    hideSections(['home', 'navigate', 'discover', 'city-name']);
+}
+
+function showNavigate() {
+    showSections(['header', 'navigate', 'search-form', 'back-icon']);
+    hideSections(['home', 'explore', 'discover', 'city-name']);
+}
+
+function showDiscover() {
+    showSections(['header', 'navigate', 'discover', 'city-name', 'back-icon']);
+    hideSections(['home', 'explore', 'search-form']);
+}
+
+function showVenue() {
+    showSections(['venue']);
+}
+
+function hideVenue() {
+    hideSections(['venue']);
+}
 
 function showSections(sections) {
     sections.forEach(function(section){
