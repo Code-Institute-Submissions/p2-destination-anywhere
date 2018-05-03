@@ -1,0 +1,18 @@
+/*-----------------------------------Venue*/
+
+.venue {
+    p {
+        margin-bottom: 3px;
+    }
+    p.small {
+        font-size: 70%;
+    }
+    .venue-image {
+        background-image: url(https://via.placeholder.com/375x400/);
+        background-size: cover;
+        background-position: center;
+    }
+    .icon-info {
+        margin-bottom: 0;
+    }
+}

@@ -108,6 +108,18 @@ h5 {
 .legend .legend-label {
   font-size: 11px; }
 
+/*-----------------------------------Venue*/
+.venue p {
+  margin-bottom: 3px; }
+.venue p.small {
+  font-size: 70%; }
+.venue .venue-image {
+  background-image: url(https://via.placeholder.com/375x400/);
+  background-size: cover;
+  background-position: center; }
+.venue .icon-info {
+  margin-bottom: 0; }
+
 /*-----------------------------------General*/
 a:hover {
   color: white;
