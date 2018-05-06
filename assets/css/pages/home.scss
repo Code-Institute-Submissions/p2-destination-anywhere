@@ -10,12 +10,6 @@ a:hover {
     min-height: 100vh;
 }
 
-.h-less-nav {
-    height: 100% - $nav-h;
-    position: relative;
-    top: $nav-h
-}
-
 .valign-b-center {
     position: relative;
     top: 50%;
@@ -41,6 +35,22 @@ a:hover {
 }
 
 /*-----------------------------------Explore*/
+
+.explore {
+    height: 100% - $nav-h;
+    position: relative;
+    top: $nav-h;
+
+    @include tablet {
+        height: 25%;
+        position: fixed;
+        top: 75%;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1030;
+    }
+}
 
 /*-----------------------------------Navigate*/
 

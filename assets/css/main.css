@@ -141,6 +141,18 @@ h5 {
 .venue .icon-info {
   margin-bottom: 0; }
 
+#breakpoint-tracker:before {
+  content: 'xs'; }
+  @media (min-width: 576px) and (max-width: 767px) {
+    #breakpoint-tracker:before {
+      content: 'sm'; } }
+  @media (min-width: 768px) and (max-width: 991px) {
+    #breakpoint-tracker:before {
+      content: 'md'; } }
+  @media (min-width: 992px) {
+    #breakpoint-tracker:before {
+      content: 'lg'; } }
+
 /*-----------------------------------General*/
 a:hover {
   color: white;
@@ -149,11 +161,6 @@ a:hover {
 .full-vh {
   height: 100vh;
   min-height: 100vh; }
-
-.h-less-nav {
-  height: 91%;
-  position: relative;
-  top: 9%; }
 
 .valign-b-center {
   position: relative;
@@ -173,6 +180,20 @@ a:hover {
   top: -50%; }
 
 /*-----------------------------------Explore*/
+.explore {
+  height: 91%;
+  position: relative;
+  top: 9%; }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .explore {
+      height: 25%;
+      position: fixed;
+      top: 75%;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1030; } }
+
 /*-----------------------------------Navigate*/
 /*-----------------------------------Discover*/
 /*-----------------------------------Venue*/
