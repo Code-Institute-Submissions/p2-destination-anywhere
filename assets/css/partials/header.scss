@@ -1,11 +1,14 @@
 .header {
-    height: $nav-h;
+    height: 10%;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1;
     .navbar {
-        padding: 0.3rem 1rem;
+        height: 10%;
+    }
+    .navbar-text {
+        padding-top: 0.25rem;
     }
     .back-icon {
         position: fixed;

@@ -37,9 +37,9 @@ a:hover {
 /*-----------------------------------Explore*/
 
 .explore {
-    height: 100% - $nav-h;
+    height: 90%;
     position: relative;
-    top: $nav-h;
+    top: 10%;
 
     @include tablet {
         height: 25%;
