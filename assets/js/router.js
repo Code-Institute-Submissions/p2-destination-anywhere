@@ -1,14 +1,28 @@
 $(document).ready(function () {
     var bp;
+    var section = "home";
     var xs = false, sm = false, md = false, lg = false;
+    const all_elements = ['home', 'header', 'explore', 'navigate', 'discover', 'logo', 'search-form', 'city-name', 'back-icon']
+    const home_xs = ['home', 'logo', 'search-form'];
+    const home_sm = ['home', 'logo', 'search-form'];
+    const home_md = ['home', 'logo', 'search-form'];
+    const home_lg = ['home', 'logo', 'search-form'];
+    const explore_xs = ['header', 'explore', 'logo', 'search-form', 'back-icon'];
+    const explore_sm = ['header', 'explore', 'logo', 'search-form', 'back-icon'];
+    const explore_md = ['header', 'explore', 'navigate', 'logo', 'search-form', 'back-icon'];
+    const explore_lg = ['header', 'explore', 'navigate', 'logo', 'search-form', 'back-icon'];
+    const navigate_xs = ['header', 'navigate', 'logo', 'search-form', 'back-icon'];
+    const navigate_sm = ['header', 'explore', 'navigate', 'logo', 'search-form', 'back-icon'];
+    const navigate_md = ['header', 'explore', 'navigate', 'logo', 'search-form', 'back-icon'];
+    const navigate_lg = ['header', 'explore', 'navigate', 'logo', 'search-form', 'back-icon'];
+    const discover_xs = ['header', 'navigate', 'discover', 'logo', 'city-name', 'back-icon'];
+    const discover_sm = ['header', 'navigate', 'discover', 'logo', 'city-name', 'back-icon'];
+    const discover_md = ['header', 'navigate', 'discover', 'city-name', 'back-icon'];
+    const discover_lg = ['header', 'explore', 'navigate', 'discover', 'logo', 'search-form', 'city-name'];
 
-    getCurrentBreakpoint();
+    setCurrentBreakpoint();
 
-    $(window).resize(function () {
-        getCurrentBreakpoint();
-    });
-
-    function getCurrentBreakpoint() {
+    function setCurrentBreakpoint() {
         bp = window.getComputedStyle(document.getElementById('breakpoint-tracker'), ':before').content.substr(1, 2);
 
         xs = Boolean(bp == "xs");
@@ -18,46 +32,68 @@ $(document).ready(function () {
         console.log(bp, xs, sm, md, lg);
     }
 
+    function setCurrentSection(s) {
+        section = s;
+    }
+
+    /*
+    * EVENT HANDLERS
+    */
+    // window resized
+    $(window).resize(function () {
+        setCurrentBreakpoint();
+        showElements(eval(`${section}_${bp}`));
+        console.log(`${section}_${bp}`);
+    });
+
     // home button clicked
     $('.home a').click(function () {
         if (xs || sm) {
             if ($(this).attr('href').substr(1) == "explore") {
-                showExploreMobile();
+                showElements(explore_xs);
+                setCurrentSection("explore");
             } else {
-                showNavigateMobile();
+                showElements(navigate_xs);
+                setCurrentSection("explore");
             }
         } else if (md) {
-            showNavigateTablet();
+            showElements(navigate_md);
+            setCurrentSection("navigate");
         }
         else {
-            showNavigateTablet();
+            showElements(navigate_md);
+            setCurrentSection("navigate");
         }
     });
 
     // explore button clicked
     $('.explore a').click(function () {
         if (xs || sm) {
-            showNavigateMobile();
+            showElements(navigate_xs);
+            setCurrentSection("navigate");
         }
         else if (md) {
-            showDiscoverTablet();
+            showElements(discover_md);
+            setCurrentSection("discover");
         } else {
             //lg
-            showDiscoverDesktop();
+            showElements(discover_lg);
+            setCurrentSection("discover");
         }
     });
 
     // city marker clicked
     $('.map-marker-city').click(function () {
         if (xs || sm) {
-            showDiscoverMobile();
+            showElements(discover_xs);
         } else if (md) {
-            showDiscoverTablet();
+            showElements(discover_md);
         }
         else {
-            //lg
-            showDiscoverDesktop();
+            // lg
+            showElements(discover_lg);
         }
+        setCurrentSection("discover");
     });
 
     // venue marker clicked
@@ -74,82 +110,50 @@ $(document).ready(function () {
     $('.back-icon').click(function () {
         if (xs || sm) {
             if ($('.search-form').hasClass('d-none')) {
-                showNavigateMobile();
+                showElements(navigate_xs);
+                setCurrentSection("navigate");
             } else if ($('.discover').hasClass('d-none') && $('.explore').hasClass('d-none')) {
-                showExploreMobile();
+                showElements(explore_xs);
+                setCurrentSection("explore");
             } else {
-                showHome();
+                showElements(home_xs);
+                setCurrentSection("home");
             }
         } else {
             // md or lg
             if (!$('.discover').hasClass('d-none')) {
-                showNavigateTablet();
+                showElements(navigate_md);
+                setCurrentSection("navigate");
             } else {
-                showHome();
+                showElements(home_xs);
+                setCurrentSection("home");
             }
         }
     });
+
+    function showVenue() {
+        $('.venue').removeClass('d-none');
+    }
+
+    function hideVenue() {
+        $('.venue').addClass('d-none');
+    }
+
+    function showElements(elements) {
+        elements.forEach(function (elem) {
+            $('.' + elem).removeClass('d-none');
+        });
+        var to_hide = all_elements.filter(
+            function (item) {
+                return !elements.includes(item);
+            }
+        );
+        hideElements(to_hide);
+    }
+
+    function hideElements(elements) {
+        elements.forEach(function (elem) {
+            $('.' + elem).addClass('d-none');
+        })
+    }
 });
-
-function showHome() {
-    console.log("home mob");
-    showSections(['home', 'logo', 'search-form']);
-    hideSections(['header', 'explore', 'navigate', 'discover', 'city-name']);
-}
-
-function showExploreMobile() {
-    console.log("explore mob");
-    showSections(['header', 'explore', 'logo', 'search-form', 'back-icon']);
-    hideSections(['home', 'navigate', 'discover', 'city-name']);
-}
-
-function showNavigateMobile() {
-    console.log("nav mob");
-    showSections(['header', 'navigate', 'logo', 'search-form', 'back-icon']);
-    hideSections(['home', 'explore', 'discover', 'city-name']);
-}
-
-function showNavigateTablet() {
-    console.log("nav tablet");
-    showSections(['header', 'explore', 'navigate', 'logo', 'search-form', 'back-icon']);
-    hideSections(['home', 'discover', 'city-name']);
-}
-
-function showDiscoverMobile() {
-    console.log("discover mob");
-    showSections(['header', 'navigate', 'discover', 'logo', 'city-name', 'back-icon']);
-    hideSections(['home', 'explore', 'search-form']);
-}
-
-function showDiscoverTablet() {
-    console.log("discover tablet");
-
-    showSections(['header', 'navigate', 'discover', 'city-name', 'back-icon']);
-    hideSections(['home', 'explore', 'logo', 'search-form']);
-}
-
-function showDiscoverDesktop() {
-    console.log("discover desktop");
-    showSections(['header', 'explore', 'navigate', 'discover', 'logo', 'search-form', 'city-name', ]);
-    hideSections(['home']);
-}
-
-function showVenue() {
-    showSections(['venue']);
-}
-
-function hideVenue() {
-    hideSections(['venue']);
-}
-
-function showSections(sections) {
-    sections.forEach(function (section) {
-        $('.' + section).removeClass('d-none');
-    })
-}
-
-function hideSections(sections) {
-    sections.forEach(function (section) {
-        $('.' + section).addClass('d-none');
-    })
-}
