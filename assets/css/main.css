@@ -240,6 +240,21 @@ a:hover {
 
 /*-----------------------------------Navigate*/
 /*-----------------------------------Discover*/
+.venue-lists {
+  height: 40vh;
+  overflow: auto;
+  background-color: #f2f2f2; }
+  .venue-lists .venue-list-header {
+    padding-top: 0.8rem; }
+    .venue-lists .venue-list-header hr {
+      margin-top: -.5rem; }
+  .venue-lists .venue-list-attractions .venue-list-header {
+    color: #09989e; }
+  .venue-lists .venue-list-accommodation .venue-list-header {
+    color: #cc3333; }
+  .venue-lists .venue-list-restaurants .venue-list-header {
+    color: #8b40bf; }
+
 /*-----------------------------------Venue*/
 
 /*# sourceMappingURL=main.css.map */
