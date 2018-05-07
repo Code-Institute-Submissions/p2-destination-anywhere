@@ -93,31 +93,31 @@ $(document).ready(function () {
 
 function showHome() {
     console.log("home mob");
-    showSections(['home', 'search-form']);
+    showSections(['home', 'logo', 'search-form']);
     hideSections(['header', 'explore', 'navigate', 'discover', 'city-name']);
 }
 
 function showExploreMobile() {
     console.log("explore mob");
-    showSections(['header', 'explore', 'search-form', 'back-icon']);
+    showSections(['header', 'explore', 'logo', 'search-form', 'back-icon']);
     hideSections(['home', 'navigate', 'discover', 'city-name']);
 }
 
 function showNavigateMobile() {
     console.log("nav mob");
-    showSections(['header', 'navigate', 'search-form', 'back-icon']);
+    showSections(['header', 'navigate', 'logo', 'search-form', 'back-icon']);
     hideSections(['home', 'explore', 'discover', 'city-name']);
 }
 
 function showNavigateTablet() {
     console.log("nav tablet");
-    showSections(['header', 'explore', 'navigate', 'search-form', 'back-icon']);
+    showSections(['header', 'explore', 'navigate', 'logo', 'search-form', 'back-icon']);
     hideSections(['home', 'discover', 'city-name']);
 }
 
 function showDiscoverMobile() {
     console.log("discover mob");
-    showSections(['header', 'navigate', 'discover', 'city-name', 'back-icon']);
+    showSections(['header', 'navigate', 'discover', 'logo', 'city-name', 'back-icon']);
     hideSections(['home', 'explore', 'search-form']);
 }
 
@@ -125,12 +125,12 @@ function showDiscoverTablet() {
     console.log("discover tablet");
 
     showSections(['header', 'navigate', 'discover', 'city-name', 'back-icon']);
-    hideSections(['home', 'explore', 'search-form']);
+    hideSections(['home', 'explore', 'logo', 'search-form']);
 }
 
 function showDiscoverDesktop() {
     console.log("discover desktop");
-    showSections(['header', 'explore', 'navigate', 'discover', 'search-form', 'city-name', ]);
+    showSections(['header', 'explore', 'navigate', 'discover', 'logo', 'search-form', 'city-name', ]);
     hideSections(['home']);
 }
 
