@@ -198,6 +198,9 @@ h5 {
       content: 'lg'; } }
 
 /*-----------------------------------General*/
+.site-wrapper {
+  overflow: hidden; }
+
 a:hover {
   color: white;
   text-decoration: none; }
