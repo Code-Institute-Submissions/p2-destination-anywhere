@@ -45,7 +45,9 @@ h5 {
   .header .navbar {
     height: 10%; }
   .header .navbar-text {
-    padding-top: 0.25rem; }
+    margin-bottom: 0;
+    padding-top: 0.25rem;
+    padding-bottom: 0; }
   .header .back-icon {
     position: fixed;
     left: 10px;
@@ -63,6 +65,19 @@ h5 {
     text-align: center; }
   .header .city-search {
     font-family: 'Open Sans', 'FontAwesome'; }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .header {
+      height: 12%; }
+      .header .navbar {
+        height: 12%; }
+      .header .navbar .form-control {
+        width: 40%;
+        font-size: 0.8rem;
+        line-height: 0.8rem;
+        padding: .2rem .75rem;
+        text-align: center; }
+      .header .navbar-text {
+        margin-bottom: 1.5rem; } }
 
 /*-----------------------------------Explore*/
 .btn-home-explore {
@@ -96,32 +111,60 @@ h5 {
   background-color: #09989e; }
 
 /*-----------------------------------Legend*/
-.legend .legend-btn:focus {
-  box-shadow: none; }
-.legend .legend-btn-attractions {
-  width: 18px;
-  height: 18px;
-  padding: 2px;
-  margin: 2px 10px;
-  background-color: #09989e; }
-.legend .legend-btn-accommodation {
-  width: 18px;
-  height: 18px;
-  padding: 2px;
-  margin: 2px 10px;
-  background-color: #cc3333; }
-.legend .legend-btn-restaurants {
-  width: 18px;
-  height: 18px;
-  padding: 2px;
-  margin: 2px 10px;
-  background-color: #8b40bf; }
-.legend .btn i {
-  font-size: 11px;
-  position: relative;
-  top: -7px; }
-.legend .legend-label {
-  font-size: 11px; }
+.legend {
+  padding-top: 0.25rem; }
+  .legend .legend-item {
+    padding-left: 20px; }
+  .legend .legend-btn:focus {
+    box-shadow: none; }
+  .legend .legend-btn-attractions {
+    width: 18px;
+    height: 18px;
+    padding: 2px;
+    margin: 2px 10px;
+    background-color: #09989e; }
+  .legend .legend-btn-accommodation {
+    width: 18px;
+    height: 18px;
+    padding: 2px;
+    margin: 2px 10px;
+    background-color: #cc3333; }
+  .legend .legend-btn-restaurants {
+    width: 18px;
+    height: 18px;
+    padding: 2px;
+    margin: 2px 10px;
+    background-color: #8b40bf; }
+  .legend .btn i {
+    font-size: 11px;
+    position: relative;
+    top: -7px; }
+  .legend .legend-label {
+    font-size: 11px; }
+  @media (min-width: 576px) and (max-width: 767px) {
+    .legend .legend-item {
+      padding-left: 0;
+      text-align: center; } }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .legend {
+      position: fixed;
+      top: 7%;
+      left: 0;
+      right: 0;
+      padding-top: 0; }
+      .legend .legend-item {
+        padding-left: 0;
+        text-align: center; } }
+  @media (min-width: 992px) {
+    .legend {
+      position: fixed;
+      top: 7%;
+      left: 0;
+      right: 0;
+      padding-top: 0; }
+      .legend .legend-item {
+        padding-left: 0;
+        text-align: center; } }
 
 /*-----------------------------------Venue*/
 .venue .close-icon {
