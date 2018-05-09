@@ -21,7 +21,32 @@
         background-size: cover;
         background-position: center;
     }
+    .venue-name {
+        font-weight: 600;
+    }
     .icon-info {
         margin-bottom: 0;
+    }
+}
+
+/*-----------------------------------Venue modal*/
+
+.venue-modal {
+    .modal-header {
+        .venue-image {
+            height: 100px;
+            background-image: url(https://via.placeholder.com/250x250/);
+            background-size: cover;
+            background-position: center;
+        }
+    }
+    .modal-body {
+        padding: 0.25rem;
+        p {
+            margin-bottom: 0.5rem;
+        }
+        .venue-name {
+            font-weight: 600;
+        }
     }
 }

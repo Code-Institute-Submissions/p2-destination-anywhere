@@ -182,8 +182,23 @@ h5 {
   background-image: url(https://via.placeholder.com/375x400/);
   background-size: cover;
   background-position: center; }
+.venue .venue-name {
+  font-weight: 600; }
 .venue .icon-info {
   margin-bottom: 0; }
+
+/*-----------------------------------Venue modal*/
+.venue-modal .modal-header .venue-image {
+  height: 100px;
+  background-image: url(https://via.placeholder.com/250x250/);
+  background-size: cover;
+  background-position: center; }
+.venue-modal .modal-body {
+  padding: 0.25rem; }
+  .venue-modal .modal-body p {
+    margin-bottom: 0.5rem; }
+  .venue-modal .modal-body .venue-name {
+    font-weight: 600; }
 
 #breakpoint-tracker:before {
   content: 'xs'; }

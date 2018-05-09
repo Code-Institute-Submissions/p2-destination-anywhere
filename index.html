@@ -275,23 +275,91 @@
     <!-- /site-wrapper -->
 
     <!-- venue modal -->
-    <div class="modal fade" id="venueModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade venue-modal" id="venueModal" tabindex="-1" role="dialog" aria-labelledby="venue information" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <div class="modal-header p-0">
+                    <div class="container-fluid px-0">
+                        <div class="row no-gutters">
+                            <div class="col venue-image">
+                            </div>
+                            <div class="col venue-image">
+                            </div>
+                            <div class="col venue-image">
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- /modal-header -->
                 <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <div class="container-fluid px-2">
+                        <div class="row no-gutters d-flex align-items-stretch">
+                            <!-- venue-info -->
+                            <div class="col venue-info p-2">
+                                <!-- <i class="close-icon fa fa-times"></i> -->
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <p class="venue-name">Miznon
+                                </p>
+                                <p class="venue-type small">Restaurant</p>
+                                <p class="rating small">
+                                    <span class="score">4.0</span>
+                                    <span class="stars">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </span>
+                                    <span class="reviews">626</span> reviews
+                                </p>
+                                <p class="venue-about small">Late-night food, Cosy, Casual</p>
+                                <!-- address -->
+                                <div class="row no-gutters address">
+                                    <div class="col-2 text-center pr-2">
+                                        <i class="fa fa-map-marker"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <p class="icon-info d-inline-block venue-address small">22 Rue des Ecouffes, 7504 Paris, France</p>
+                                    </div>
+                                </div>
+                                <!-- website -->
+                                <div class="row no-gutters website">
+                                    <div class="col-2 text-center pr-2">
+                                        <i class="fa fa-globe"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <p class="icon-info d-inline-block venue-website small">
+                                            <a href="#">facebook.com</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- phone -->
+                                <div class="row no-gutters phone">
+                                    <div class="col-2 text-center pr-2">
+                                        <i class="fa fa-phone"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <p class="icon-info d-inline-block venue-phone small">+33 1 42 74 83 58</p>
+                                    </div>
+                                </div>
+                                <!-- opening-hours -->
+                                <div class="row no-gutters opening-hours">
+                                    <div class="col-2 text-center pr-2">
+                                        <i class="fa fa-clock-o"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <p class="icon-info d-inline-block venue-opening-hours small">Closed. Opens at 12:00</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /venue-info -->
+                        </div>
+                    </div>
                 </div>
             </div>
+            <!-- /modal-body -->
         </div>
     </div>
     <!-- /venue modal -->
