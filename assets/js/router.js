@@ -99,6 +99,7 @@ $(document).ready(function () {
     // venue marker clicked
     $('.map-marker-venue').click(function () {
         showVenue();
+        $('#venueModal').modal('show');
     });
 
     // close venue clicked
