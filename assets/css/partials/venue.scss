@@ -7,23 +7,29 @@
         width: 20px;
         height: 20px;
     }
+
     .close-icon:hover {
         cursor: pointer;
     }
+
     p {
         margin-bottom: 3px;
     }
+
     p.small {
         font-size: 70%;
     }
+
     .venue-image {
         background-image: url(https://via.placeholder.com/375x400/);
         background-size: cover;
         background-position: center;
     }
+
     .venue-name {
         font-weight: 600;
     }
+
     .icon-info {
         margin-bottom: 0;
     }
@@ -40,13 +46,26 @@
             background-position: center;
         }
     }
+
     .modal-body {
         padding: 0.25rem;
+
         p {
             margin-bottom: 0.5rem;
         }
+
         .venue-name {
             font-weight: 600;
         }
+    }
+
+    @include desktop {
+        z-index: 2020;
+    }
+}
+
+.modal-backdrop {
+    @include desktop {
+        z-index: 2010;
     }
 }

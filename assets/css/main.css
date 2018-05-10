@@ -232,6 +232,13 @@ h5 {
     margin-bottom: 0.5rem; }
   .venue-modal .modal-body .venue-name {
     font-weight: 600; }
+@media (min-width: 992px) {
+  .venue-modal {
+    z-index: 2020; } }
+
+@media (min-width: 992px) {
+  .modal-backdrop {
+    z-index: 2010; } }
 
 #breakpoint-tracker:before {
   content: 'xs'; }
