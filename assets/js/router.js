@@ -98,8 +98,10 @@ $(document).ready(function () {
 
     // venue marker clicked
     $('.map-marker-venue').click(function () {
+        if (!(bp == "xs")) {
+            $('#venueModal').modal('show');
+        }
         showVenue();
-        $('#venueModal').modal('show');
     });
 
     // close venue clicked

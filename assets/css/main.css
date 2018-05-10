@@ -236,9 +236,17 @@ h5 {
   .venue-modal {
     z-index: 2020; } }
 
-@media (min-width: 992px) {
-  .modal-backdrop {
-    z-index: 2010; } }
+.modal-backdrop.show {
+  z-index: -1; }
+  @media (min-width: 576px) and (max-width: 767px) {
+    .modal-backdrop.show {
+      z-index: 1040; } }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .modal-backdrop.show {
+      z-index: 1040; } }
+  @media (min-width: 992px) {
+    .modal-backdrop.show {
+      z-index: 2010; } }
 
 #breakpoint-tracker:before {
   content: 'xs'; }

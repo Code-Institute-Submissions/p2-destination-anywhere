@@ -60,12 +60,29 @@
     }
 
     @include desktop {
+        // place modal on top of backdrop
         z-index: 2020;
     }
 }
 
-.modal-backdrop {
+.modal-backdrop.show {
+    // hide backdrop on mobile
+    z-index: -1;
+
+    @include mobile-sm {
+        // default z-index
+        z-index: 1040;
+    }
+
+
+    @include tablet {
+        // default z-index
+        z-index: 1040;
+    }
+
+
     @include desktop {
+        // place backdrop on top of header
         z-index: 2010;
     }
 }
