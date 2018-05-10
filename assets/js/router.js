@@ -29,7 +29,7 @@ $(document).ready(function () {
         sm = Boolean(bp == "sm");
         md = Boolean(bp == "md");
         lg = Boolean(bp == "lg");
-        console.log(bp, xs, sm, md, lg);
+        // console.log(bp, xs, sm, md, lg);
     }
 
     function setCurrentSection(s) {
@@ -43,7 +43,7 @@ $(document).ready(function () {
     $(window).resize(function () {
         setCurrentBreakpoint();
         showElements(eval(`${section}_${bp}`));
-        console.log(`${section}_${bp}`);
+        // console.log(`${section}_${bp}`);
     });
 
     // home button clicked
