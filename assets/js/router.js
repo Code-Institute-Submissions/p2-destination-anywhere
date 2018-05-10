@@ -46,6 +46,10 @@ $(document).ready(function () {
         // console.log(`${section}_${bp}`);
     });
 
+    $('.logo').click(function() {
+        showElements(eval(`home_${bp}`));
+    });
+
     // home button clicked
     $('.home a').click(function () {
         if (xs || sm) {
@@ -73,12 +77,12 @@ $(document).ready(function () {
             setCurrentSection("navigate");
         }
         else if (md) {
-            showElements(discover_md);
-            setCurrentSection("discover");
+            showElements(navigate_md);
+            setCurrentSection("navigate");
         } else {
             //lg
-            showElements(discover_lg);
-            setCurrentSection("discover");
+            showElements(navigate_lg);
+            setCurrentSection("navigate");
         }
     });
 
@@ -100,8 +104,9 @@ $(document).ready(function () {
     $('.map-marker-venue').click(function () {
         if (!(bp == "xs")) {
             $('#venueModal').modal('show');
+        } else {
+            showVenue();
         }
-        showVenue();
     });
 
     // close venue clicked
