@@ -38,6 +38,7 @@ h5 {
 
 .header {
   height: 10%;
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
@@ -78,6 +79,18 @@ h5 {
         text-align: center; }
       .header .navbar-text {
         margin-bottom: 1.5rem; } }
+  @media (min-width: 992px) {
+    .header {
+      height: 15%;
+      background-color: darkslategray;
+      width: 34%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      z-index: 2010; }
+      .header .container-fluid.navbar-wrapper {
+        height: 100%; }
+      .header .navbar {
+        height: 100%; } }
 
 /*-----------------------------------Explore*/
 .btn-home-explore {
@@ -94,21 +107,37 @@ h5 {
   font-size: 24px;
   font-weight: 300;
   background-color: #dbb68f; }
+  @media (min-width: 992px) {
+    .button-explore-cities {
+      font-size: 18px;
+      font-weight: 500; } }
 
 .button-explore-culture {
   font-size: 24px;
   font-weight: 300;
   background-color: #bb7e5d; }
+  @media (min-width: 992px) {
+    .button-explore-culture {
+      font-size: 18px;
+      font-weight: 500; } }
 
 .button-explore-food {
   font-size: 24px;
   font-weight: 300;
   background-color: #8e7563; }
+  @media (min-width: 992px) {
+    .button-explore-food {
+      font-size: 18px;
+      font-weight: 500; } }
 
 .button-explore-shopping {
   font-size: 24px;
   font-weight: 300;
   background-color: #09989e; }
+  @media (min-width: 992px) {
+    .button-explore-shopping {
+      font-size: 18px;
+      font-weight: 500; } }
 
 /*-----------------------------------Legend*/
 .legend {
@@ -255,6 +284,13 @@ a:hover {
       bottom: 0;
       left: 0;
       z-index: 1030; } }
+  @media (min-width: 992px) {
+    .explore {
+      height: 15%;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      z-index: 2000; } }
 
 /*-----------------------------------Navigate*/
 /*-----------------------------------Discover*/

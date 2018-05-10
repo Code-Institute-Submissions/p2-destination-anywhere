@@ -5,21 +5,28 @@
     text-align: center;
 }
 
-@mixin exploreButton ($color) {
+@mixin exploreButton($color) {
     @extend %flatButton;
+
     font-size: 24px;
     font-weight: 300;
     background-color: $color;
+
+    @include desktop {
+        font-size: 18px;
+        font-weight: 500;
+    }
 }
 
-@mixin homeButton ($image) {
+@mixin homeButton($image) {
     @extend %flatButton;
+
     font-size: 32px;
     background-image: url(#{$image});
     background-size: cover;
 }
 
-@mixin legendButton ($color) {
+@mixin legendButton($color) {
     width: 18px;
     height: 18px;
     padding: 2px;
