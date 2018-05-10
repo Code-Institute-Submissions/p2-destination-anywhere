@@ -18,7 +18,7 @@ $(document).ready(function () {
     const discover_xs = ['header', 'navigate', 'discover', 'logo', 'city-name', 'back-icon'];
     const discover_sm = ['header', 'navigate', 'discover', 'logo', 'city-name', 'back-icon'];
     const discover_md = ['header', 'navigate', 'discover', 'city-name', 'back-icon'];
-    const discover_lg = ['header', 'explore', 'navigate', 'discover', 'logo', 'search-form', 'city-name'];
+    const discover_lg = ['header', 'explore', 'navigate', 'discover', 'logo', 'search-form', 'city-name', 'back-icon'];
 
     setCurrentBreakpoint();
 
