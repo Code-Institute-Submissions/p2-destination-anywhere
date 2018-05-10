@@ -83,9 +83,9 @@ h5 {
     .header {
       height: 15%;
       background-color: darkslategray;
-      width: 34%;
+      width: 33.333334%;
       left: 50%;
-      transform: translate(-50%, 0);
+      transform: translate(-50.1%, 0);
       z-index: 2010; }
       .header .container-fluid.navbar-wrapper {
         height: 100%; }
@@ -308,6 +308,14 @@ a:hover {
     color: #cc3333; }
   .venue-lists .venue-list-restaurants .venue-list-header {
     color: #8b40bf; }
+  @media (min-width: 992px) {
+    .venue-lists {
+      height: 75%;
+      width: 33.333334%;
+      background-color: #f2f2f2;
+      position: fixed;
+      top: 15%;
+      right: 0; } }
 
 /*-----------------------------------Venue*/
 
