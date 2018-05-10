@@ -186,11 +186,8 @@ h5 {
         text-align: center; } }
   @media (min-width: 992px) {
     .legend {
-      position: fixed;
-      top: 7%;
-      left: 0;
-      right: 0;
-      padding-top: 0; }
+      position: static;
+      height: 100%; }
       .legend .legend-item {
         padding-left: 0;
         text-align: center; } }
@@ -294,6 +291,10 @@ a:hover {
 
 /*-----------------------------------Navigate*/
 /*-----------------------------------Discover*/
+@media (min-width: 992px) {
+  .discover {
+    height: 10%; } }
+
 .venue-lists {
   height: 40vh;
   overflow: auto;
