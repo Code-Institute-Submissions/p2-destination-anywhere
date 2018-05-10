@@ -59,9 +59,22 @@
         position: static;
         height: 100%;
 
+        .container-fluid {
+            height: 100%;
+        }
+
+        .row {
+            height: 100%;
+            align-items: center;
+        }
+
         .legend-item {
             padding-left: 0;
             text-align: center;
+            .legend-label {
+                font-size: 14px;
+            }
         }
+
     }
 }

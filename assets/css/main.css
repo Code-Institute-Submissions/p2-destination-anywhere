@@ -188,9 +188,16 @@ h5 {
     .legend {
       position: static;
       height: 100%; }
+      .legend .container-fluid {
+        height: 100%; }
+      .legend .row {
+        height: 100%;
+        align-items: center; }
       .legend .legend-item {
         padding-left: 0;
-        text-align: center; } }
+        text-align: center; }
+        .legend .legend-item .legend-label {
+          font-size: 14px; } }
 
 /*-----------------------------------Venue*/
 .venue .close-icon {
