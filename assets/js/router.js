@@ -12,7 +12,7 @@ $(document).ready(function () {
     const explore_md = ['header', 'explore', 'navigate', 'logo', 'search-form', 'back-icon'];
     const explore_lg = ['header', 'explore', 'navigate', 'logo', 'search-form', 'back-icon'];
     const navigate_xs = ['header', 'navigate', 'logo', 'search-form', 'back-icon'];
-    const navigate_sm = ['header', 'explore', 'navigate', 'logo', 'search-form', 'back-icon'];
+    const navigate_sm = ['header', 'navigate', 'logo', 'search-form', 'back-icon'];
     const navigate_md = ['header', 'explore', 'navigate', 'logo', 'search-form', 'back-icon'];
     const navigate_lg = ['header', 'explore', 'navigate', 'logo', 'search-form', 'back-icon'];
     const discover_xs = ['header', 'navigate', 'discover', 'logo', 'city-name', 'back-icon'];
