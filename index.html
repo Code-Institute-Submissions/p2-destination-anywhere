@@ -15,6 +15,7 @@
     <script src="assets/js/vendors/bootstrap.min.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/router.js"></script>
+    <script src="assets/js/map.js"></script>
 
 </head>
 
@@ -25,16 +26,16 @@
         <!-- header -->
         <header class="header d-none">
             <div class="container-fluid navbar-wrapper">
-            <nav class="navbar fixed-top navbar-dark bg-dark text-center">
-                <i class="back-icon fa fa-chevron-left"></i>
-                <a class="w-100 logo" href="#">
-                    <img src="assets/images/logo.svg" height="18" alt="logo">
-                </a>
-                <form class="search-form form-inline w-100 pt-2">
-                    <input class="city-search form-control mx-auto text-uppercase" type="search" placeholder="&#xF002; find a city" aria-label="Search">
-                </form>
-                <h4 class="city-name navbar-text mx-auto d-none">Paris</h4>
-            </nav>
+                <nav class="navbar fixed-top navbar-dark bg-dark text-center">
+                    <i class="back-icon fa fa-chevron-left"></i>
+                    <a class="w-100 logo" href="#">
+                        <img src="assets/images/logo.svg" height="18" alt="logo">
+                    </a>
+                    <form class="search-form form-inline w-100 pt-2">
+                        <input class="city-search form-control mx-auto text-uppercase" type="search" placeholder="&#xF002; find a city" aria-label="Search">
+                    </form>
+                    <h4 class="city-name navbar-text mx-auto d-none">Paris</h4>
+                </nav>
             </div>
         </header>
         <!-- /header -->
@@ -101,7 +102,7 @@
             <div class="container-fluid h-100 px-0">
                 <div class="row h-100 no-gutters">
                     <div class="col h-100">
-                        <div class="map h-100 bg-info">
+                        <div id="map" class="map h-100 bg-info">
                             <h4 class="text-center mt-5 pt-5 map-marker-city">city marker</h4>
                             <h4 class="text-center mt-5 map-marker-venue">venue marker</h4>
                         </div>
@@ -367,6 +368,12 @@
     <!-- /venue modal -->
 
     <div id="breakpoint-tracker" class="d-none"></div>
+
+    <!-- Google Maps API -->
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeSdxbyE4ybSD4H0xNgCL6DcjMmz4ElRQ&callback=initMap&libraries=places"
+        async defer></script>
 </body>
 
 </html>
