@@ -72,6 +72,10 @@ $(document).ready(function () {
 
     // explore button clicked
     $('.explore a').click(function () {
+        // Call initMap (map.js) to update markers
+        var cities_list = $(this).text().trim().split(' ').join('_');
+        initMap(cities_list);
+
         if (xs || sm) {
             showElements(navigate_xs);
             setCurrentSection("navigate");
