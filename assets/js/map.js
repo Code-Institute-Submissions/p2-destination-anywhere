@@ -34,6 +34,14 @@ function createMarkers(cities) {
         });
     });
 
+    // Add event listner for city markers
+    markers.forEach(function (marker) {
+        google.maps.event.addListener(marker, 'click', function () {
+            map.setZoom(12);
+            map.setCenter(marker.getPosition());
+        });
+    });
+
     // Create clusters
     var markerCluster = new MarkerClusterer(map, markers,
         { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
