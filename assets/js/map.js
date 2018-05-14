@@ -1,12 +1,8 @@
 var map;
 
-
-/*
-*
-*/
 function initMap(cities_list) {
 
-    if (typeof(cities_list) === 'undefined') {
+    if (typeof (cities_list) === 'undefined') {
         cities_list = "all_cities";
     }
 
@@ -22,7 +18,7 @@ function initMap(cities_list) {
         // Create city markers
         createMarkers(cities);
     });
-}
+};
 
 function createMarkers(cities) {
     var markers = cities.map(function (city, i) {
@@ -34,18 +30,23 @@ function createMarkers(cities) {
         });
     });
 
-    // Add event listner for city markers
+    // Add event listners for city markers
     markers.forEach(function (marker) {
         google.maps.event.addListener(marker, 'click', function () {
             map.setZoom(12);
             map.setCenter(marker.getPosition());
+
+            // Update navigation (router.js)
+            cityMarkerClicked();
+            // Get places(venues) in the city
+            getPlaces(marker);
         });
     });
 
     // Create clusters
     var markerCluster = new MarkerClusterer(map, markers,
         { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
-}
+};
 
 function getCities(cities_list) {
     switch (cities_list) {
@@ -72,7 +73,28 @@ function getCities(cities_list) {
         default:
             console.log('Invalid cities list');
     }
-}
+};
+
+function getPlaces(city) {
+    var request = {
+        location: city.position,
+        radius: '500',
+        type: ['restaurant']
+    };
+
+    service = new google.maps.places.PlacesService(map);
+    service.nearbySearch(request, placesCallback);
+};
+
+function placesCallback(results, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+            var place = results[i];
+            // console.log(place);
+            // createMarker(results[i]);
+        }
+    }
+};
 
 var map_styles = [
     {
