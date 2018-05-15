@@ -37,10 +37,12 @@ function initMap(cities_list) {
 function createCityMarkers(cities) {
     var markers = cities.map(function (city, i) {
         var city_label;
+        // Change label for Top 10 list or all cities
         cities.length > 10 ? city_label = `${city.name}` : city_label = `${city.rank}. ${city.name}`;
         return new google.maps.Marker({
             position: { lat: city.lat, lng: city.lon },
-            label: city_label
+            label: city_label,
+            icon: 'assets/images/marker_city.png'
         });
     });
 
@@ -56,7 +58,7 @@ function createCityMarkers(cities) {
 function createCityHandlers(markers) {
     markers.forEach(function (marker) {
         google.maps.event.addListener(marker, 'click', function () {
-            map.setZoom(12);
+            map.setZoom(14);
             map.setCenter(marker.getPosition());
 
             // Update navigation (router.js)
@@ -69,6 +71,43 @@ function createCityHandlers(markers) {
             displayPlaces();
         });
     });
+};
+
+// Create places markers
+function createPlacesMarkers() {
+    console.log(attractions);
+    console.log(accommodation);
+    console.log(restaurants);
+
+    var attractionsMarkers = attractions.map(function (place, i) {
+        return new google.maps.Marker({
+            position: place.geometry.location,
+            label: place.name,
+            icon: 'assets/images/marker_attractions.png'
+        });
+    });
+    var accommodationMarkers = accommodation.map(function (place, i) {
+        return new google.maps.Marker({
+            position: place.geometry.location,
+            label: place.name,
+            icon: 'assets/images/marker_accommodation.png'
+        });
+    });
+    var restaurantsMarkers = restaurants.map(function (place, i) {
+        return new google.maps.Marker({
+            position: place.geometry.location,
+            label: place.name,
+            icon: 'assets/images/marker_restaurants.png'
+        });
+    });
+
+    // Create clusters
+    var markerCluster = new MarkerClusterer(map, attractionsMarkers,
+        { imagePath: 'assets/images/cluster_attractions_m' });
+    var markerCluster = new MarkerClusterer(map, accommodationMarkers,
+        { imagePath: 'assets/images/cluster_accommodation_m' });
+    var markerCluster = new MarkerClusterer(map, restaurantsMarkers,
+        { imagePath: 'assets/images/cluster_restaurants_m' });
 };
 
 function getCities(cities_list) {
@@ -105,7 +144,7 @@ function getPlaces(city) {
     types.forEach(function (type) {
         var request = {
             location: city.position,
-            radius: '500',
+            radius: '5000',
             type: type
         };
         service.nearbySearch(request, placesCallback);
@@ -136,22 +175,24 @@ function placesCallback(results, status) {
 function displayPlaces() {
 
     setTimeout(function() {
-        console.log("attractions: " + attractions.length);
-        attractions.forEach(function (place) {
-            console.log(`Type: ${place.types}, Name: ${place.name}`);
-        });
+        // console.log("attractions: " + attractions.length);
+        // attractions.forEach(function (place) {
+        //     console.log(`Type: ${place.types}, Name: ${place.name}`);
+        // });
+
+        createPlacesMarkers();
     }, 1000);
     setTimeout(function() {
-        console.log("accommodation: " + accommodation.length);
-        accommodation.forEach(function (place) {
-            console.log(`Type: ${place.types}, Name: ${place.name}`);
-        });
+        // console.log("accommodation: " + accommodation.length);
+        // accommodation.forEach(function (place) {
+        //     console.log(`Type: ${place.types}, Name: ${place.name}`);
+        // });
     }, 1000);
     setTimeout(function() {
-        console.log("restaurants: " + restaurants.length);
-        restaurants.forEach(function (place) {
-            console.log(`Type: ${place.types}, Name: ${place.name}`);
-        });
+        // console.log("restaurants: " + restaurants.length);
+        // restaurants.forEach(function (place) {
+        //     console.log(`Type: ${place.types}, Name: ${place.name}`);
+        // });
     }, 1000);
 
 };
