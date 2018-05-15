@@ -11,6 +11,8 @@ var restaurants = [];
 * Functions
 */
 
+
+// Create map
 function initMap(cities_list) {
 
     if (typeof (cities_list) === 'undefined') {
@@ -27,11 +29,12 @@ function initMap(cities_list) {
 
     getCities(cities_list).then(function (cities) {
         // Create city markers
-        createMarkers(cities);
+        createCityMarkers(cities);
     });
 };
 
-function createMarkers(cities) {
+// Create city markers
+function createCityMarkers(cities) {
     var markers = cities.map(function (city, i) {
         var city_label;
         cities.length > 10 ? city_label = `${city.name}` : city_label = `${city.rank}. ${city.name}`;
@@ -42,6 +45,15 @@ function createMarkers(cities) {
     });
 
     // Add event listners for city markers
+    createCityHandlers(markers);
+
+    // Create clusters
+    var markerCluster = new MarkerClusterer(map, markers,
+        { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+};
+
+// Create city marker click handlers
+function createCityHandlers(markers) {
     markers.forEach(function (marker) {
         google.maps.event.addListener(marker, 'click', function () {
             map.setZoom(12);
@@ -57,10 +69,6 @@ function createMarkers(cities) {
             displayPlaces();
         });
     });
-
-    // Create clusters
-    var markerCluster = new MarkerClusterer(map, markers,
-        { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
 };
 
 function getCities(cities_list) {
