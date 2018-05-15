@@ -82,21 +82,18 @@ function createPlacesMarkers() {
     var attractionsMarkers = attractions.map(function (place, i) {
         return new google.maps.Marker({
             position: place.geometry.location,
-            label: place.name,
             icon: 'assets/images/marker_attractions.png'
         });
     });
     var accommodationMarkers = accommodation.map(function (place, i) {
         return new google.maps.Marker({
             position: place.geometry.location,
-            label: place.name,
             icon: 'assets/images/marker_accommodation.png'
         });
     });
     var restaurantsMarkers = restaurants.map(function (place, i) {
         return new google.maps.Marker({
             position: place.geometry.location,
-            label: place.name,
             icon: 'assets/images/marker_restaurants.png'
         });
     });
@@ -232,6 +229,14 @@ var map_styles = [
         ]
     },
     {
+        "featureType": "administrative.country",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
         "featureType": "administrative.land_parcel",
         "elementType": "geometry.stroke",
         "stylers": [
@@ -246,6 +251,30 @@ var map_styles = [
         "stylers": [
             {
                 "color": "#ae9e90"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.locality",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.neighborhood",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.province",
+        "stylers": [
+            {
+                "visibility": "simplified"
             }
         ]
     },
@@ -277,6 +306,38 @@ var map_styles = [
         ]
     },
     {
+        "featureType": "poi.attraction",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.business",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.government",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.medical",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
         "featureType": "poi.park",
         "elementType": "geometry.fill",
         "stylers": [
@@ -295,11 +356,43 @@ var map_styles = [
         ]
     },
     {
+        "featureType": "poi.place_of_worship",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.school",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.sports_complex",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
         "featureType": "road",
         "elementType": "geometry",
         "stylers": [
             {
                 "color": "#f5f1e6"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "stylers": [
+            {
+                "visibility": "simplified"
             }
         ]
     },
@@ -398,7 +491,7 @@ var map_styles = [
         "elementType": "geometry.fill",
         "stylers": [
             {
-                "color": "#09a2d0"
+                "color": "#b9d3c2"
             }
         ]
     },
