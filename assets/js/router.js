@@ -90,9 +90,7 @@ $('.explore a').click(function () {
     }
 });
 
-// city marker clicked
-$('.map-marker-city').click(function () {
-    console.log(".map-marker-city.click");
+function cityMarkerClicked() {
     if (xs || sm) {
         showElements(discover_xs);
     } else if (md) {
@@ -103,7 +101,7 @@ $('.map-marker-city').click(function () {
         showElements(discover_lg);
     }
     setCurrentSection("discover");
-});
+};
 
 // venue marker clicked
 $('.map-marker-venue').click(function () {
@@ -168,18 +166,4 @@ function hideElements(elements) {
     elements.forEach(function (elem) {
         $('.' + elem).addClass('d-none');
     })
-};
-
-function cityMarkerClicked() {
-    console.log("city marker clicked");
-    if (xs || sm) {
-        showElements(discover_xs);
-    } else if (md) {
-        showElements(discover_md);
-    }
-    else {
-        // lg
-        showElements(discover_lg);
-    }
-    setCurrentSection("discover");
 };
