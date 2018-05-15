@@ -1,4 +1,15 @@
+/*
+* Variables
+*/
+
 var map;
+var attractions = [];
+var accommodation = [];
+var restaurants = [];
+
+/*
+* Functions
+*/
 
 function initMap(cities_list) {
 
@@ -38,8 +49,12 @@ function createMarkers(cities) {
 
             // Update navigation (router.js)
             cityMarkerClicked();
-            // Get places(venues) in the city
+
+            // Get places (venues) in the city
             getPlaces(marker);
+
+            // Create markers and populate venue-lists section
+            displayPlaces();
         });
     });
 
@@ -76,24 +91,61 @@ function getCities(cities_list) {
 };
 
 function getPlaces(city) {
-    var request = {
-        location: city.position,
-        radius: '500',
-        type: ['restaurant']
-    };
-
+    var types = [['lodging'], ['bar'], ['restaurant'], ['amusement_park'], ['aquarium'], ['art_gallery'], ['museum'], ['zoo']];
     service = new google.maps.places.PlacesService(map);
-    service.nearbySearch(request, placesCallback);
+
+    types.forEach(function (type) {
+        var request = {
+            location: city.position,
+            radius: '500',
+            type: type
+        };
+        service.nearbySearch(request, placesCallback);
+    });
 };
 
 function placesCallback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
             var place = results[i];
-            // console.log(place);
-            // createMarker(results[i]);
+
+            // Sort places into categories
+            if (place.types.includes('lodging')) {
+                accommodation.push(place);
+            };
+
+            if (place.types.includes('bar') || place.types.includes('restaurant')) {
+                restaurants.push(place);
+            };
+
+            if (place.types.includes('amusement_park') || place.types.includes('aquarium') || place.types.includes('art_gallery') || place.types.includes('museum') || place.types.includes('zoo')) {
+                attractions.push(place);
+            };
         }
     }
+};
+
+function displayPlaces() {
+
+    setTimeout(function() {
+        console.log("attractions: " + attractions.length);
+        attractions.forEach(function (place) {
+            console.log(`Type: ${place.types}, Name: ${place.name}`);
+        });
+    }, 1000);
+    setTimeout(function() {
+        console.log("accommodation: " + accommodation.length);
+        accommodation.forEach(function (place) {
+            console.log(`Type: ${place.types}, Name: ${place.name}`);
+        });
+    }, 1000);
+    setTimeout(function() {
+        console.log("restaurants: " + restaurants.length);
+        restaurants.forEach(function (place) {
+            console.log(`Type: ${place.types}, Name: ${place.name}`);
+        });
+    }, 1000);
+
 };
 
 var map_styles = [
