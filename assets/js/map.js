@@ -4,16 +4,19 @@
 
 var map;
 var city_markers;
-var city_marker_cluster;
-var place_markers;
+var cities_cluster;
+
+var attractions_markers;
+var accommodation_markers;
+var restaurants_markers;
+
+var attractions_cluster;
+var accommodation_cluster;
+var restaurants_cluster;
+
 var attractions = [];
 var accommodation = [];
 var restaurants = [];
-
-/*
-* Functions
-*/
-
 
 // Create map
 function initMap(cities_list) {
@@ -36,92 +39,11 @@ function initMap(cities_list) {
     });
 };
 
-// Create city markers
-function createCityMarkers(cities) {
-    city_markers = cities.map(function (city, i) {
-        var city_label;
-        // Change label for Top 10 list or all cities
-        cities.length > 10 ? city_label = `${city.name}` : city_label = `${city.rank}. ${city.name}`;
-        return new google.maps.Marker({
-            position: { lat: city.lat, lng: city.lon },
-            label: city_label,
-            icon: 'assets/images/marker_city.png'
-        });
-    });
+/*
+* City Markers
+*/
 
-    // Add event listners for city markers
-    createCityHandlers(city_markers);
-
-    // Create city cluster
-    addCitiesToCluster();
-};
-
-function addCitiesToCluster() {
-    city_marker_cluster = new MarkerClusterer(map, city_markers,
-        { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
-}
-
-// Create city marker click handlers
-function createCityHandlers(markers) {
-    markers.forEach(function (marker) {
-        google.maps.event.addListener(marker, 'click', function () {
-            map.setZoom(14);
-            map.setCenter(marker.getPosition());
-
-            // Update navigation (router.js)
-            cityMarkerClicked();
-
-            // Get places (venues) in the city
-            getPlaces(marker);
-
-            // Create markers and populate venue-lists section
-            displayPlaces();
-        });
-    });
-};
-
-// Remove markers from map
-function removeMarkers(markers, clusterer) {
-    markers.forEach(function(marker) {
-        marker.setMap(null);
-    });
-    clusterer.clearMarkers();
-};
-
-// Create places markers
-function createPlacesMarkers() {
-    console.log(attractions);
-    console.log(accommodation);
-    console.log(restaurants);
-
-    var attractionsMarkers = attractions.map(function (place, i) {
-        return new google.maps.Marker({
-            position: place.geometry.location,
-            icon: 'assets/images/marker_attractions.png'
-        });
-    });
-    var accommodationMarkers = accommodation.map(function (place, i) {
-        return new google.maps.Marker({
-            position: place.geometry.location,
-            icon: 'assets/images/marker_accommodation.png'
-        });
-    });
-    var restaurantsMarkers = restaurants.map(function (place, i) {
-        return new google.maps.Marker({
-            position: place.geometry.location,
-            icon: 'assets/images/marker_restaurants.png'
-        });
-    });
-
-    // Create clusters
-    var markerCluster = new MarkerClusterer(map, attractionsMarkers,
-        { imagePath: 'assets/images/cluster_attractions_m' });
-    var markerCluster = new MarkerClusterer(map, accommodationMarkers,
-        { imagePath: 'assets/images/cluster_accommodation_m' });
-    var markerCluster = new MarkerClusterer(map, restaurantsMarkers,
-        { imagePath: 'assets/images/cluster_restaurants_m' });
-};
-
+// Get cities JSON data
 function getCities(cities_list) {
     switch (cities_list) {
         case 'all_cities':
@@ -149,6 +71,60 @@ function getCities(cities_list) {
     }
 };
 
+// Create city markers
+function createCityMarkers(cities) {
+    city_markers = cities.map(function (city, i) {
+        var city_label;
+        // Change label for Top 10 list or all cities
+        cities.length > 10 ? city_label = `${city.name}` : city_label = `${city.rank}. ${city.name}`;
+        return new google.maps.Marker({
+            position: { lat: city.lat, lng: city.lon },
+            label: city_label,
+            icon: 'assets/images/marker_city.png'
+        });
+    });
+
+    // Add event listners for city markers
+    createCityHandlers(city_markers);
+
+    // Create city clusters
+    addCityClusters();
+};
+
+// Handle city marker click events
+function createCityHandlers(markers) {
+    markers.forEach(function (marker) {
+        google.maps.event.addListener(marker, 'click', function () {
+            map.setZoom(14);
+            map.setCenter(marker.getPosition());
+
+            // Update navigation (router.js)
+            cityMarkerClicked();
+
+            // Get places (venues) in the city
+            getPlaces(marker);
+
+            // Create markers and populate venue-lists section
+            displayPlaces();
+        });
+    });
+};
+
+// Add cities to map
+function addCityClusters() {
+    cities_cluster = new MarkerClusterer(map, city_markers,
+        { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+    map.setZoom(2);
+    if (attractions.length > 0) {
+        removePlaceMarkers();
+    }
+}
+
+/*
+* Place Markers
+*/
+
+// Request attractions, accommodation and bars & restaurants from the Places library
 function getPlaces(city) {
     var types = [['lodging'], ['bar'], ['restaurant'], ['amusement_park'], ['aquarium'], ['art_gallery'], ['museum'], ['zoo']];
     service = new google.maps.places.PlacesService(map);
@@ -163,6 +139,7 @@ function getPlaces(city) {
     });
 };
 
+// Put places into arrays
 function placesCallback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
@@ -184,11 +161,66 @@ function placesCallback(results, status) {
     }
 };
 
+// Create places markers
+function createPlacesMarkers() {
+    // console.log(attractions);
+    // console.log(accommodation);
+    // console.log(restaurants);
+
+    attractions_markers = attractions.map(function (place, i) {
+        return new google.maps.Marker({
+            position: place.geometry.location,
+            icon: 'assets/images/marker_attractions.png'
+        });
+    });
+    accommodation_markers = accommodation.map(function (place, i) {
+        return new google.maps.Marker({
+            position: place.geometry.location,
+            icon: 'assets/images/marker_accommodation.png'
+        });
+    });
+    restaurants_markers = restaurants.map(function (place, i) {
+        return new google.maps.Marker({
+            position: place.geometry.location,
+            icon: 'assets/images/marker_restaurants.png'
+        });
+    });
+
+    // Create clusters
+    addPlaceClusters();
+};
+
+// Add places to map
+function addPlaceClusters() {
+    attractions_cluster = new MarkerClusterer(map, attractions_markers,
+        { imagePath: 'assets/images/cluster_attractions_m' });
+    accommodation_cluster = new MarkerClusterer(map, accommodation_markers,
+        { imagePath: 'assets/images/cluster_accommodation_m' });
+    restaurants_cluster = new MarkerClusterer(map, restaurants_markers,
+        { imagePath: 'assets/images/cluster_restaurants_m' });
+}
+
+function removePlaceMarkers() {
+    removeMarkers(attractions_markers, attractions_cluster);
+    removeMarkers(accommodation_markers, accommodation_cluster);
+    removeMarkers(restaurants_markers, restaurants_cluster);
+}
+
+// Remove markers from map
+function removeMarkers(markers, clusterer) {
+    markers.forEach(function (marker) {
+        marker.setMap(null);
+    });
+    clusterer.clearMarkers();
+};
+
+
+// Called in city marker click handler
 function displayPlaces() {
 
-    setTimeout(function() {
+    setTimeout(function () {
         createPlacesMarkers();
-        removeMarkers(city_markers, city_marker_cluster);
+        removeMarkers(city_markers, cities_cluster);
 
     }, 1000);
 
