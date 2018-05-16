@@ -114,10 +114,11 @@ function createCityHandlers(markers) {
 function addCityClusters() {
     cities_cluster = new MarkerClusterer(map, city_markers,
         { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
-    map.setZoom(2);
     if (attractions.length > 0) {
         removePlaceMarkers();
     };
+    map.setZoom(2);
+
 }
 
 /*
