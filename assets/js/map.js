@@ -3,6 +3,9 @@
 */
 
 var map;
+var city_markers;
+var city_marker_cluster;
+var place_markers;
 var attractions = [];
 var accommodation = [];
 var restaurants = [];
@@ -35,7 +38,7 @@ function initMap(cities_list) {
 
 // Create city markers
 function createCityMarkers(cities) {
-    var markers = cities.map(function (city, i) {
+    city_markers = cities.map(function (city, i) {
         var city_label;
         // Change label for Top 10 list or all cities
         cities.length > 10 ? city_label = `${city.name}` : city_label = `${city.rank}. ${city.name}`;
@@ -47,12 +50,16 @@ function createCityMarkers(cities) {
     });
 
     // Add event listners for city markers
-    createCityHandlers(markers);
+    createCityHandlers(city_markers);
 
-    // Create clusters
-    var markerCluster = new MarkerClusterer(map, markers,
-        { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+    // Create city cluster
+    addCitiesToCluster();
 };
+
+function addCitiesToCluster() {
+    city_marker_cluster = new MarkerClusterer(map, city_markers,
+        { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+}
 
 // Create city marker click handlers
 function createCityHandlers(markers) {
@@ -71,6 +78,14 @@ function createCityHandlers(markers) {
             displayPlaces();
         });
     });
+};
+
+// Remove markers from map
+function removeMarkers(markers, clusterer) {
+    markers.forEach(function(marker) {
+        marker.setMap(null);
+    });
+    clusterer.clearMarkers();
 };
 
 // Create places markers
@@ -172,24 +187,9 @@ function placesCallback(results, status) {
 function displayPlaces() {
 
     setTimeout(function() {
-        // console.log("attractions: " + attractions.length);
-        // attractions.forEach(function (place) {
-        //     console.log(`Type: ${place.types}, Name: ${place.name}`);
-        // });
-
         createPlacesMarkers();
-    }, 1000);
-    setTimeout(function() {
-        // console.log("accommodation: " + accommodation.length);
-        // accommodation.forEach(function (place) {
-        //     console.log(`Type: ${place.types}, Name: ${place.name}`);
-        // });
-    }, 1000);
-    setTimeout(function() {
-        // console.log("restaurants: " + restaurants.length);
-        // restaurants.forEach(function (place) {
-        //     console.log(`Type: ${place.types}, Name: ${place.name}`);
-        // });
+        removeMarkers(city_markers, city_marker_cluster);
+
     }, 1000);
 
 };

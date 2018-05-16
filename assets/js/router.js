@@ -123,6 +123,7 @@ $('.back-icon').click(function () {
         if ($('.search-form').hasClass('d-none')) {
             showElements(navigate_xs);
             setCurrentSection("navigate");
+            addCitiesToCluster();
         } else if ($('.discover').hasClass('d-none') && $('.explore').hasClass('d-none')) {
             showElements(explore_xs);
             setCurrentSection("explore");
@@ -135,6 +136,7 @@ $('.back-icon').click(function () {
         if (!$('.discover').hasClass('d-none')) {
             showElements(navigate_md);
             setCurrentSection("navigate");
+            addCitiesToCluster();
         } else {
             showElements(home_xs);
             setCurrentSection("home");
