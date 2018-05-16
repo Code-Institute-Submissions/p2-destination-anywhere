@@ -35,7 +35,7 @@ function initMap(cities_list) {
 
     getCities(cities_list).then(function (cities) {
         // Create city markers
-        createCityMarkers(cities);
+        createCityMarkers(cities, map);
     });
 };
 
@@ -99,7 +99,7 @@ function createCityHandlers(markers) {
             map.setCenter(marker.getPosition());
 
             // Update navigation (router.js)
-            cityMarkerClicked();
+            cityMarkerClicked(marker.label);
 
             // Get places (venues) in the city
             getPlaces(marker);
@@ -117,7 +117,7 @@ function addCityClusters() {
     map.setZoom(2);
     if (attractions.length > 0) {
         removePlaceMarkers();
-    }
+    };
 }
 
 /*

@@ -90,7 +90,7 @@ $('.explore a').click(function () {
     }
 });
 
-function cityMarkerClicked() {
+function cityMarkerClicked(label) {
     if (xs || sm) {
         showElements(discover_xs);
     } else if (md) {
@@ -101,6 +101,7 @@ function cityMarkerClicked() {
         showElements(discover_lg);
     }
     setCurrentSection("discover");
+    $('.city-name').text(label);
 };
 
 // venue marker clicked
