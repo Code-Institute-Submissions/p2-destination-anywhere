@@ -261,6 +261,24 @@ function addVenueList(list, type) {
     });
 };
 
+// Legend buttons click handler
+$('.legend-btn').click(function () {
+    $(this).children('i').toggleClass("invisible");
+    togglePlaces($(this).siblings('.legend-label').text().toLowerCase());
+});
+
+// Show or hide place markers by category
+function togglePlaces(category) {
+    if (eval(category + '_cluster').markers_.length === 0) {
+        eval(`${category}_cluster = new MarkerClusterer(map, ${category}_markers,
+            { imagePath: 'assets/images/clusters/cluster_${category}_m' })`);
+    } else {
+        eval(category + '_cluster').clearMarkers();
+    }
+};
+
+
+// Styles for map
 var map_styles = [
     {
         "elementType": "geometry",
