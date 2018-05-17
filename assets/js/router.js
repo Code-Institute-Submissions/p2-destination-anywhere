@@ -104,14 +104,13 @@ function cityMarkerClicked(label) {
     $('.city-name').text(label);
 };
 
-// venue marker clicked
-$('.map-marker-venue').click(function () {
+function venueMarkerClicked() {
     if (!(bp == "xs")) {
         $('#venueModal').modal('show');
     } else {
         showVenue();
     }
-});
+};
 
 // close venue clicked
 $('.close-icon').click(function () {

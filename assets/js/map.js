@@ -119,6 +119,7 @@ function addCityClusters() {
     }; map.setZoom(2);
 };
 
+
 /*
 * Place Markers
 */
@@ -193,9 +194,30 @@ function createPlacesMarkers() {
         });
     });
 
+    // Add event listners for place markers
+    createPlaceHandlers(attractions_markers);
+    createPlaceHandlers(accommodation_markers);
+    createPlaceHandlers(restaurants_markers);
+
     // Create clusters
     addPlaceClusters();
 };
+
+// Handle place marker click events
+function createPlaceHandlers(markers) {
+    markers.forEach(function (marker) {
+        google.maps.event.addListener(marker, 'click', function () {
+
+            // map.setCenter(marker.getPosition());
+
+            console.log('place clicked');
+            // Update navigation (router.js)
+            venueMarkerClicked()
+
+        });
+    });
+};
+
 
 // Add places to map
 function addPlaceClusters() {
