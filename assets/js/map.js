@@ -27,6 +27,7 @@ function initMap(cities_list) {
 
     // Create map
     var center = { lat: 40.4165, lng: -3.70256 };
+
     map = new google.maps.Map(document.getElementById('map'), {
         center: center,
         zoom: 2,
@@ -35,7 +36,7 @@ function initMap(cities_list) {
 
     getCities(cities_list).then(function (cities) {
         // Create city markers
-        createCityMarkers(cities, map);
+        createCityMarkers(cities);
     });
 };
 
@@ -67,7 +68,6 @@ function getCities(cities_list) {
             });
             break;
         default:
-            console.log('Invalid cities list');
     }
 };
 
@@ -113,13 +113,11 @@ function createCityHandlers(markers) {
 // Add cities to map
 function addCityClusters() {
     cities_cluster = new MarkerClusterer(map, city_markers,
-        { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+        { imagePath: 'assets/images/clusters/m' });
     if (attractions.length > 0) {
         removePlaceMarkers();
-    };
-    map.setZoom(2);
-
-}
+    }; map.setZoom(2);
+};
 
 /*
 * Place Markers
@@ -164,9 +162,6 @@ function placesCallback(results, status) {
 
 // Create places markers
 function createPlacesMarkers() {
-    // console.log(attractions);
-    // console.log(accommodation);
-    // console.log(restaurants);
 
     attractions_markers = attractions.map(function (place, i) {
         return new google.maps.Marker({
@@ -194,18 +189,18 @@ function createPlacesMarkers() {
 // Add places to map
 function addPlaceClusters() {
     attractions_cluster = new MarkerClusterer(map, attractions_markers,
-        { imagePath: 'assets/images/cluster_attractions_m' });
+        { imagePath: 'assets/images/clusters/cluster_attractions_m' });
     accommodation_cluster = new MarkerClusterer(map, accommodation_markers,
-        { imagePath: 'assets/images/cluster_accommodation_m' });
+        { imagePath: 'assets/images/clusters/cluster_accommodation_m' });
     restaurants_cluster = new MarkerClusterer(map, restaurants_markers,
-        { imagePath: 'assets/images/cluster_restaurants_m' });
-}
+        { imagePath: 'assets/images/clusters/cluster_restaurants_m' });
+};
 
 function removePlaceMarkers() {
     removeMarkers(attractions_markers, attractions_cluster);
     removeMarkers(accommodation_markers, accommodation_cluster);
     removeMarkers(restaurants_markers, restaurants_cluster);
-}
+};
 
 // Remove markers from map
 function removeMarkers(markers, clusterer) {
@@ -223,9 +218,39 @@ function displayPlaces() {
         createPlacesMarkers();
         removeMarkers(city_markers, cities_cluster);
 
+        addVenueList(attractions, 'attractions');
+        addVenueList(accommodation, 'accommodation');
+        addVenueList(restaurants, 'restaurants');
+
     }, 1000);
 
 };
+
+// Popluate venue lists section with places
+function addVenueList(list, type) {
+
+    // Clear any previous places
+    $(`.venue-list-${type} .venue-list .row`).empty();
+
+    // Add new places
+    list.forEach(function(place) {
+        var place_photo = (place.photos === undefined) ? place.icon : place.photos[0].getUrl({ 'maxWidth': 60, 'maxHeight': 60 });
+
+        $(`.venue-list-${type} .venue-list>.row`).append(
+            `<div class="col-4 col-lg-6 venue-list-item">
+                <div class="row no-gutters">
+                    <div class="col-3 venue-list-image" style="background-image:url(${place_photo});">
+                    </div>
+                    <div class="col-9">
+                        <p class="small">${place.name}</p>
+                    </div>
+                </div>
+            </div>`
+        );
+
+    });
+
+}
 
 var map_styles = [
     {

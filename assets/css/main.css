@@ -325,6 +325,17 @@ a:hover {
     padding-top: 0.8rem; }
     .venue-lists .venue-list-header hr {
       margin-top: -.5rem; }
+  .venue-lists .venue-list-item {
+    height: 54px;
+    margin: 1rem 0; }
+    .venue-lists .venue-list-item .venue-list-image {
+      width: 100%;
+      height: 54px;
+      background-position: center;
+      background-size: cover; }
+    .venue-lists .venue-list-item p {
+      margin-bottom: 0;
+      padding-left: 1rem; }
   .venue-lists .venue-list-attractions .venue-list-header {
     color: #09989e; }
   .venue-lists .venue-list-accommodation .venue-list-header {
