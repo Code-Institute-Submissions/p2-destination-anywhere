@@ -125,6 +125,12 @@ function addCityClusters() {
 
 // Request attractions, accommodation and bars & restaurants from the Places library
 function getPlaces(city) {
+
+    // Clear any existing places
+    emptyArray(attractions);
+    emptyArray(accommodation);
+    emptyArray(restaurants);
+
     var types = [['lodging'], ['bar'], ['restaurant'], ['amusement_park'], ['aquarium'], ['art_gallery'], ['museum'], ['zoo']];
     service = new google.maps.places.PlacesService(map);
 
@@ -158,6 +164,11 @@ function placesCallback(results, status) {
             };
         }
     }
+};
+
+// Used to reset attractions, accommodation and resturants arrays
+function emptyArray(a) {
+    a.length = 0;
 };
 
 // Create places markers
@@ -230,10 +241,10 @@ function displayPlaces() {
 function addVenueList(list, type) {
 
     // Clear any previous places
-    $(`.venue-list-${type} .venue-list .row`).empty();
+    $(`.venue-list-${type} .venue-list>.row`).empty();
 
     // Add new places
-    list.forEach(function(place) {
+    list.forEach(function (place) {
         var place_photo = (place.photos === undefined) ? place.icon : place.photos[0].getUrl({ 'maxWidth': 60, 'maxHeight': 60 });
 
         $(`.venue-list-${type} .venue-list>.row`).append(
@@ -247,10 +258,8 @@ function addVenueList(list, type) {
                 </div>
             </div>`
         );
-
     });
-
-}
+};
 
 var map_styles = [
     {
