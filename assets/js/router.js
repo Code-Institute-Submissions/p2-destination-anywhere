@@ -124,6 +124,9 @@ $('.back-icon').click(function () {
             showElements(navigate_xs);
             setCurrentSection("navigate");
             addCityClusters();
+            if(!$('.venue').hasClass('d-none')) {
+                hideVenue();
+            };
         } else if ($('.discover').hasClass('d-none') && $('.explore').hasClass('d-none')) {
             showElements(explore_xs);
             setCurrentSection("explore");
@@ -137,6 +140,9 @@ $('.back-icon').click(function () {
             showElements(navigate_md);
             setCurrentSection("navigate");
             addCityClusters();
+            if (!$('.venue').hasClass('d-none')) {
+                hideVenue();
+            };
         } else {
             showElements(home_xs);
             setCurrentSection("home");
