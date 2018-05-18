@@ -3,6 +3,7 @@
 */
 
 var map;
+var service;
 var city_markers;
 var cities_cluster;
 
@@ -211,7 +212,6 @@ function createPlaceHandlers(markers, places) {
             // map.setCenter(marker.getPosition());
 
             // Update venue info
-
             var place = places[markers.indexOf(marker)];
             updateVenueInfo(place);
 
@@ -288,10 +288,88 @@ function addVenueList(list, type) {
 // Update venue info section with clicked place details
 function updateVenueInfo(place) {
 
-    $('.venue-image').css('background-image', function() {
-        var place_photo = (!place.photos) ? place.icon : place.photos[0].getUrl({ 'maxWidth': 375, 'maxHeight': 400 });
-        return `url(${place_photo})`;
+    // Place details
+    var place_details;
+    var request = {
+        placeId: place.place_id
+    };
+
+    service.getDetails(request, function (details, status) {
+        place_details = details;
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+
+            $('.venue-image').css('background-image', function () {
+                var place_photo = (!place.photos) ? place.icon : place.photos[0].getUrl({ 'maxWidth': 375, 'maxHeight': 400 });
+                return `url(${place_photo})`;
+            });
+
+            $('.venue-name').text(place.name);
+
+            $('.venue-type').text(place.types.slice(0, 3).join(", "));
+
+            // Rating
+            $('.rating .score').text(place.rating);
+            $('.rating .stars').empty();
+            if (place.rating) {
+                var full_stars = Math.floor(place.rating);
+                var half_star = (function () {
+                    var fraction = parseInt(String(place.rating).substr(2, 1));
+                    if (fraction < 3) {
+                        return false;
+                    } else if (fraction < 8) {
+                        return true;
+                    } else if (fraction >= 8) {
+                        full_stars++;
+                        return false;
+                    } else {
+                        return false;
+                    }
+                })();
+                var empty_stars = 5 - (full_stars + half_star);
+
+                // full stars
+                for (var i = 0; i < full_stars; i++) {
+                    $('.rating .stars').append('<i class="fa fa-star"></i>');
+                };
+                // half stars
+                if (half_star) {
+                    $('.rating .stars').append('<i class="fa fa-star-half-o"></i>');
+                };
+                // empty stars
+                for (var i = 0; i < empty_stars; i++) {
+                    $('.rating .stars').append('<i class="fa fa-star-o"></i>');
+                };
+            };
+
+            $('.venue-address').text(place.vicinity);
+
+            if (place_details.website){
+                $('.website').show();
+                $('.venue-website a').attr('href', place_details.website);
+                $('.venue-website a').text(`${place_details.website.substr(0, 30)}...`);
+            } else {
+                $('.website').hide();
+            };
+
+            if (place_details.international_phone_number){
+                $('.phone').show();
+                $('.venue-phone').text(place_details.international_phone_number);
+            } else {
+                $('.phone').hide();
+            };
+
+            if (place_details.opening_hours) {
+                var d = new Date();
+                var hours_today = place_details.opening_hours.weekday_text;
+                hours_today.unshift(hours_today.pop());
+                $('.opening-hours').show();
+                $('.venue-opening-hours').text(hours_today[d.getDay()]);
+            } else {
+                $('.opening-hours').hide();
+            }
+        };
     });
+
 }
 
 // Legend buttons click handler
