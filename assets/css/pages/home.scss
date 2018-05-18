@@ -4,8 +4,12 @@
     overflow: hidden;
 }
 
+a {
+    color: inherit;
+}
+
 a:hover {
-    color: white;
+    color: inherit;
     text-decoration: none;
 }
 

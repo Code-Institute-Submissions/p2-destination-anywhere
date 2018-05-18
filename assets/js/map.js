@@ -292,10 +292,17 @@ $('.legend-btn').click(function () {
 // Show or hide place markers by category
 function togglePlaces(category) {
     if (eval(category + '_cluster').markers_.length === 0) {
+        // Add markers
         eval(`${category}_cluster = new MarkerClusterer(map, ${category}_markers,
             { imagePath: 'assets/images/clusters/cluster_${category}_m' })`);
+        // Show venue list
+        $('#collapse_' + category).collapse('show');
+
     } else {
+        // Clear markers
         eval(category + '_cluster').clearMarkers();
+        // Hide venue list
+        $('#collapse_' + category).collapse('hide');
     }
 };
 

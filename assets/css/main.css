@@ -264,8 +264,11 @@ h5 {
 .site-wrapper {
   overflow: hidden; }
 
+a {
+  color: inherit; }
+
 a:hover {
-  color: white;
+  color: inherit;
   text-decoration: none; }
 
 .full-vh {
