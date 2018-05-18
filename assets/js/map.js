@@ -195,29 +195,32 @@ function createPlacesMarkers() {
     });
 
     // Add event listners for place markers
-    createPlaceHandlers(attractions_markers);
-    createPlaceHandlers(accommodation_markers);
-    createPlaceHandlers(restaurants_markers);
+    createPlaceHandlers(attractions_markers, attractions);
+    createPlaceHandlers(accommodation_markers, accommodation);
+    createPlaceHandlers(restaurants_markers, restaurants);
 
     // Create clusters
     addPlaceClusters();
 };
 
 // Handle place marker click events
-function createPlaceHandlers(markers) {
+function createPlaceHandlers(markers, places) {
     markers.forEach(function (marker) {
         google.maps.event.addListener(marker, 'click', function () {
 
             // map.setCenter(marker.getPosition());
 
-            console.log('place clicked');
+            // Update venue info
+
+            var place = places[markers.indexOf(marker)];
+            updateVenueInfo(place);
+
             // Update navigation (router.js)
-            venueMarkerClicked()
+            venueMarkerClicked();
 
         });
     });
 };
-
 
 // Add places to map
 function addPlaceClusters() {
@@ -242,7 +245,6 @@ function removeMarkers(markers, clusterer) {
     });
     clusterer.clearMarkers();
 };
-
 
 // Called in city marker click handler
 function displayPlaces() {
@@ -282,6 +284,15 @@ function addVenueList(list, type) {
         );
     });
 };
+
+// Update venue info section with clicked place details
+function updateVenueInfo(place) {
+
+    $('.venue-image').css('background-image', function() {
+        var place_photo = (!place.photos) ? place.icon : place.photos[0].getUrl({ 'maxWidth': 375, 'maxHeight': 400 });
+        return `url(${place_photo})`;
+    });
+}
 
 // Legend buttons click handler
 $('.legend-btn').click(function () {

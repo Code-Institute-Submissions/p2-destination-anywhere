@@ -281,6 +281,8 @@ a:hover {
   left: 0; }
 
 /*-----------------------------------Home*/
+.home a:hover {
+  color: white; }
 .home .logo > img {
   position: fixed;
   left: 50%;
@@ -313,6 +315,8 @@ a:hover {
       position: fixed;
       top: 0;
       z-index: 2000; } }
+  .explore a:hover {
+    color: white; }
 
 /*-----------------------------------Navigate*/
 /*-----------------------------------Discover*/
