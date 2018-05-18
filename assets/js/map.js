@@ -267,7 +267,7 @@ function addVenueList(list, type) {
 
     // Add new places
     list.forEach(function (place) {
-        var place_photo = (place.photos === undefined) ? place.icon : place.photos[0].getUrl({ 'maxWidth': 60, 'maxHeight': 60 });
+        var place_photo = (!place.photos) ? place.icon : place.photos[0].getUrl({ 'maxWidth': 60, 'maxHeight': 60 });
 
         $(`.venue-list-${type} .venue-list>.row`).append(
             `<div class="col-4 col-lg-6 venue-list-item">
