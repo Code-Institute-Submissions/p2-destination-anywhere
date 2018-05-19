@@ -3,6 +3,7 @@
 */
 
 var map;
+var autocomplete;
 var service;
 var city_markers;
 var cities_cluster;
@@ -41,7 +42,20 @@ function initMap(cities_list) {
         // Create city markers
         createCityMarkers(cities);
     });
+
+    // Add autocomplete service
+    autocomplete = new google.maps.places.Autocomplete($('#citySearch')[0], { types: ['(cities)'] });
+    autocomplete.addListener('place_changed', onCitySearch);
 };
+
+// Navigate to city selected from search box
+function onCitySearch() {
+    removeMarkers(city_markers, cities_cluster);
+    var searched_city = [];
+    searched_city.push(autocomplete.getPlace());
+    createCityMarkers(searched_city);
+    new google.maps.event.trigger(city_markers[0], 'click');
+}
 
 /*
 * City Markers
@@ -77,11 +91,13 @@ function getCities(cities_list) {
 // Create city markers
 function createCityMarkers(cities) {
     city_markers = cities.map(function (city, i) {
-        var city_label;
-        // Change label for Top 10 list or all cities
-        cities.length > 10 ? city_label = `${city.name}` : city_label = `${city.rank}. ${city.name}`;
+        // Change label for Top 10 list
+        var city_label = (cities.length === 10) ? `${city.rank}. ${city.name}` : `${city.name}`;
+
+        var city_location = (city.lat) ? { lat: city.lat, lng: city.lon } : city.geometry.location;
+
         return new google.maps.Marker({
-            position: { lat: city.lat, lng: city.lon },
+            position: city_location,
             label: city_label,
             icon: 'assets/images/marker_city.png'
         });

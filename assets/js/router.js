@@ -126,6 +126,8 @@ $('.close-icon').click(function () {
 
 // back-icon clicked
 $('.back-icon').click(function () {
+    // Reset city search input box
+    $('.city-search').val('');
     if (xs || sm) {
         if ($('.search-form').hasClass('d-none')) {
             showElements(navigate_xs);
