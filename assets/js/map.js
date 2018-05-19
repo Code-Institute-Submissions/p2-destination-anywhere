@@ -155,16 +155,35 @@ function placesCallback(results, status) {
             var place = results[i];
 
             // Sort places into categories
+
+            // accommodation
             if (place.types.includes('lodging')) {
-                accommodation.push(place);
+                var exists = accommodation.filter(function (elem) {
+                    return elem.name === place.name;
+                });
+                if (exists.length === 0) {
+                    accommodation.push(place);
+                };
             };
 
+            // restaurants
             if (place.types.includes('bar') || place.types.includes('restaurant')) {
-                restaurants.push(place);
+                var exists = restaurants.filter(function (elem) {
+                    return elem.name === place.name;
+                });
+                if (exists.length === 0) {
+                    restaurants.push(place);
+                };
             };
 
+            //attractions
             if (place.types.includes('amusement_park') || place.types.includes('aquarium') || place.types.includes('art_gallery') || place.types.includes('museum') || place.types.includes('zoo')) {
-                attractions.push(place);
+                var exists = attractions.filter(function (elem) {
+                    return elem.name === place.name;
+                });
+                if (exists.length === 0) {
+                    attractions.push(place);
+                };
             };
         }
     }
