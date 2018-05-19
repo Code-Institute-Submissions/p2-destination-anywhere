@@ -19,6 +19,8 @@ var attractions = [];
 var accommodation = [];
 var restaurants = [];
 
+var info_windows = [];
+
 // Create map
 function initMap(cities_list) {
 
@@ -209,14 +211,27 @@ function createPlaceHandlers(markers, places) {
     markers.forEach(function (marker) {
         google.maps.event.addListener(marker, 'click', function () {
 
-            // map.setCenter(marker.getPosition());
-
             // Update venue info
             var place = places[markers.indexOf(marker)];
             updateVenueInfo(place);
 
             // Update navigation (router.js)
             venueMarkerClicked();
+
+            // Info window
+            infowindow = new google.maps.InfoWindow({
+                content: place.name
+            });
+            // Close any open window, if any
+            info_windows.push(infowindow);
+            info_windows.forEach(function (window) {
+                window.close();
+            });
+
+            infowindow.open(map, marker);
+
+            // Pan map to marker
+            map.panTo(marker.getPosition());
 
         });
     });
@@ -343,7 +358,7 @@ function updateVenueInfo(place) {
 
             $('.venue-address').text(place.vicinity);
 
-            if (place_details.website){
+            if (place_details.website) {
                 $('.website').show();
                 $('.venue-website a').attr('href', place_details.website);
                 $('.venue-website a').text(`${place_details.website.substr(0, 30)}...`);
@@ -351,7 +366,7 @@ function updateVenueInfo(place) {
                 $('.website').hide();
             };
 
-            if (place_details.international_phone_number){
+            if (place_details.international_phone_number) {
                 $('.phone').show();
                 $('.venue-phone').text(place_details.international_phone_number);
             } else {
