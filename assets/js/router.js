@@ -90,7 +90,7 @@ $('.explore a').click(function () {
     }
 });
 
-function cityMarkerClicked(label) {
+function cityClicked(label) {
     if (xs || sm) {
         showElements(discover_xs);
     } else if (md) {
@@ -104,7 +104,7 @@ function cityMarkerClicked(label) {
     $('.city-name').text(label);
 };
 
-function venueMarkerClicked() {
+function venueClicked() {
     if (!xs) {
         if (sm) {
             $('.modal-dialog').css('margin', '1.75rem auto');
@@ -115,7 +115,7 @@ function venueMarkerClicked() {
             $('#venueModal').modal('show');
         }, 800);
     } else {
-        showVenue();
+        $('.venue').removeClass('d-none');
     };
 };
 
@@ -156,10 +156,6 @@ $('.back-icon').click(function () {
         }
     }
 });
-
-function showVenue() {
-    $('.venue').removeClass('d-none');
-};
 
 function hideVenue() {
     $('.venue').addClass('d-none');

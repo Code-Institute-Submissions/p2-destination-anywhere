@@ -102,7 +102,7 @@ function createCityHandlers(markers) {
             map.setCenter(marker.getPosition());
 
             // Update navigation (router.js)
-            cityMarkerClicked(marker.label);
+            cityClicked(marker.label);
 
             // Get places (venues) in the city
             getPlaces(marker);
@@ -213,27 +213,7 @@ function createPlaceHandlers(markers, places) {
 
             // Update venue info
             var place = places[markers.indexOf(marker)];
-            updateVenueInfo(place);
-
-            // Update navigation (router.js)
-            venueMarkerClicked();
-
-            // Info window
-            infowindow = new google.maps.InfoWindow({
-                content: place.name
-            });
-            // Close any open window, if any
-            info_windows.push(infowindow);
-            info_windows.forEach(function (window) {
-                window.close();
-            });
-
-            infowindow.open(map, marker);
-
-            // Pan map to marker
-            console.log(place.geometry);
-            map.panTo(marker.getPosition());
-
+            showVenue(marker, place);
         });
     });
 };
@@ -269,26 +249,30 @@ function displayPlaces() {
         createPlacesMarkers();
         removeMarkers(city_markers, cities_cluster);
 
-        addVenueList(attractions, 'attractions');
-        addVenueList(accommodation, 'accommodation');
-        addVenueList(restaurants, 'restaurants');
+        addVenueLists();
 
     }, 1000);
 
 };
 
 // Popluate venue lists section with places
-function addVenueList(list, type) {
+function addVenueLists() {
 
-    // Clear any previous places
-    $(`.venue-list-${type} .venue-list>.row`).empty();
+    lists = [attractions, accommodation, restaurants];
+    types = ['attractions', 'accommodation', 'restaurants'];
 
-    // Add new places
-    list.forEach(function (place) {
-        var place_photo = (!place.photos) ? place.icon : place.photos[0].getUrl({ 'maxWidth': 60, 'maxHeight': 60 });
+    lists.forEach(function (list, index) {
+        type = types[index];
 
-        $(`.venue-list-${type} .venue-list>.row`).append(
-            `<div class="col-4 col-lg-6 venue-list-item">
+        // Clear any previous places
+        $(`.venue-list-${type} .venue-list>.row`).empty();
+
+        // Add new places
+        list.forEach(function (place) {
+            var place_photo = (!place.photos) ? place.icon : place.photos[0].getUrl({ 'maxWidth': 60, 'maxHeight': 60 });
+
+            $(`.venue-list-${type} .venue-list>.row`).append(
+                `<div class="col-4 col-lg-6 venue-list-item .venue-list-item-${type}">
                 <div class="row no-gutters">
                     <div class="col-3 venue-list-image" style="background-image:url(${place_photo});">
                     </div>
@@ -297,8 +281,12 @@ function addVenueList(list, type) {
                     </div>
                 </div>
             </div>`
-        );
+            );
+        });
     });
+
+    // Listen for venue list item click
+    addVenueListItemListener();
 };
 
 // Update venue info section with clicked place details
@@ -388,13 +376,56 @@ function updateVenueInfo(place) {
 
 }
 
+function showVenue(marker, place) {
+
+    // Populate venue info with selected place details
+    updateVenueInfo(place);
+
+    // Update navigation (router.js)
+    venueClicked();
+
+    // Toggle info window
+    infowindow = new google.maps.InfoWindow({
+        content: place.name
+    });
+    // Close any open info window, if any
+    info_windows.push(infowindow);
+    info_windows.forEach(function (window) {
+        window.close();
+    });
+
+    infowindow.open(map, marker);
+
+    // Pan map to marker
+    map.panTo(marker.getPosition());
+}
+
+function addVenueListItemListener() {
+    $('.venue-list-item').click(function () {
+
+        var clicked_name = $(this).text().trim();
+        var category = this.classList[3].substr(17);
+
+        var places_array = eval(category);
+        var markers_array = eval(category + '_markers');
+
+        var place = places_array.filter(function (p, i) {
+            return p.name === clicked_name;
+        });
+
+        var marker = markers_array[places_array.indexOf(place[0])];
+
+        showVenue(marker, place[0]);
+    });
+};
+
 // Legend buttons click handler
 $('.legend-btn').click(function () {
     $(this).children('i').toggleClass("invisible");
     togglePlaces($(this).siblings('.legend-label').text().toLowerCase());
 });
 
-// Show or hide place markers by category
+// Show or hide place markers by category on legend
 function togglePlaces(category) {
     if (eval(category + '_cluster').markers_.length === 0) {
         // Add markers
