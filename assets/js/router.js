@@ -105,11 +105,18 @@ function cityMarkerClicked(label) {
 };
 
 function venueMarkerClicked() {
-    if (!(bp == "xs")) {
-        $('#venueModal').modal('show');
+    if (!xs) {
+        if (sm) {
+            $('.modal-dialog').css('margin', '1.75rem auto');
+        } else {
+            $('.modal-dialog').css('margin', '1.75rem 3rem');
+        };
+        setTimeout(function () {
+            $('#venueModal').modal('show');
+        }, 800);
     } else {
         showVenue();
-    }
+    };
 };
 
 // close venue clicked

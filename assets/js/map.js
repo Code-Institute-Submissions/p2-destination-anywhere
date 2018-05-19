@@ -231,6 +231,7 @@ function createPlaceHandlers(markers, places) {
             infowindow.open(map, marker);
 
             // Pan map to marker
+            console.log(place.geometry);
             map.panTo(marker.getPosition());
 
         });
