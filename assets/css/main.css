@@ -102,6 +102,13 @@ h5 {
   font-size: 32px;
   background-image: url(../images/home-navigate.jpg);
   background-size: cover; }
+  .btn-home-navigate .home-enter {
+    position: fixed;
+    top: 55%;
+    left: 0;
+    right: 0;
+    text-transform: none;
+    font-size: 18px; }
 
 .button-explore-cities {
   font-size: 24px;

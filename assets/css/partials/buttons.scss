@@ -6,6 +6,15 @@
 
 .btn-home-navigate {
     @include homeButton("../images/home-navigate.jpg");
+
+    .home-enter {
+        position: fixed;
+        top: 55%;
+        left: 0;
+        right: 0;
+        text-transform: none;
+        font-size: 18px;
+    }
 }
 
 .button-explore-cities {
