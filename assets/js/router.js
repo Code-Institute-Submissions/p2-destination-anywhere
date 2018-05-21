@@ -57,7 +57,7 @@ $('.home a').click(function () {
             setCurrentSection("explore");
         } else {
             toggleElements(navigate_xs);
-            setCurrentSection("explore");
+            setCurrentSection("navigate");
         }
     } else if (md) {
         toggleElements(navigate_md);
@@ -127,6 +127,8 @@ $('.close-icon').click(function () {
 $('.back-icon').click(function () {
     // Reset city search input box
     $('.city-search').val('');
+    // Reset legend
+    // $('.legend-btn').children('i').removeClass("invisible");
     if (xs || sm) {
         if ($('.search-form').hasClass('d-none')) {
             toggleElements(navigate_xs);

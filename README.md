@@ -145,6 +145,38 @@ Adjust height of header and navbar
 
 ---
 
+**PROBLEM**
+
+Back icon not returning to home from navigate
+
+**FIX**
+
+setCuttentSection was incorrect
+
+```javascript
+// home button clicked
+$('.home a').click(function () {
+    if (xs || sm) {
+        if ($(this).attr('href').substr(1) == "explore") {
+            toggleElements(explore_xs);
+            setCurrentSection("explore");
+        } else {
+            toggleElements(navigate_xs);
+            setCurrentSection("navigate");
+        }
+    } else if (md) {
+        toggleElements(navigate_md);
+        setCurrentSection("navigate");
+    }
+    else {
+        toggleElements(navigate_md);
+        setCurrentSection("navigate");
+    }
+});
+```
+
+---
+
 #### *Tablet*
 
 Tested on iPad simulator (Chrome)
