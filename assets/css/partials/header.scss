@@ -1,5 +1,5 @@
 .header {
-    height: 10%;
+    height: 12%;
     width: 100%;
     position: fixed;
     top: 0;
@@ -7,7 +7,7 @@
     z-index: 1;
 
     .navbar {
-        height: 10%;
+        height: 12%;
     }
 
     .navbar-text {
@@ -42,12 +42,6 @@
     }
 
     @include tablet {
-        height: 12%;
-
-        .navbar {
-            height: 12%;
-        }
-
         .navbar .form-control {
             width: 40%;
             font-size: 0.8rem;

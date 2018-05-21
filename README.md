@@ -132,38 +132,16 @@ https://developers.google.com/maps/documentation/javascript/tutorial- [Google Ma
 
 #### *Mobile*
 
-Tested on iPhone 5 & 6
-
+Tested on iPhone 5
 ---
 
 **PROBLEM**
 
-**FIX**
-
----
-
-**PROBLEM**
-
-List-default li wrap not indenting
+Contents overflowing header on phone screen
 
 **FIX**
 
-Wrapped li text in span and set icon width:20%
-
-```css
-.list-default i {
-    display: inline-block;
-    width: 20%;
-    text-align: center;
-    padding-right: 10px;
-}
-
-.list-default .list-item-text {
-    display: inline-block;
-    width: 80%;
-    vertical-align: top;
-}
-```
+Adjust height of header and navbar
 
 ---
 
@@ -173,11 +151,6 @@ Tested on iPad simulator (Chrome)
 
 ---
 
-**PROBLEM**
-
-**FIX**
-
----
 
 #### *Desktop*
 
