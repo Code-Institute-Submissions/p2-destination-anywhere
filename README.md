@@ -130,8 +130,6 @@ https://developers.google.com/maps/documentation/javascript/tutorial- [Google Ma
 [**CSS Validator Results**](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fsarahloh.github.io%2Fp2-destination-anywhere%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
 
-<!--
-
 #### *Mobile*
 
 Tested on iPhone 5 & 6
@@ -189,9 +187,10 @@ Tested on Chrome, Safari, Firefox
 
 **PROBLEM**
 
+Autocomplete input select dropdown behind navbar
+
 **FIX**
 
+Adjust z-index.
 
 ---
-
--->
