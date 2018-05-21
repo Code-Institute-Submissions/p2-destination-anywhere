@@ -137,6 +137,19 @@ Tested on iPhone 5
 
 **PROBLEM**
 
+Legend not reset on change city
+
+**FIX**
+
+```javascript
+// Reset legend
+$('.legend-btn').children('i').removeClass("invisible");
+```
+
+---
+
+**PROBLEM**
+
 Contents overflowing header on phone screen
 
 **FIX**
