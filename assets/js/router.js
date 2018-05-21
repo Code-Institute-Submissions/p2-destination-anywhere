@@ -42,30 +42,29 @@ function setCurrentSection(s) {
 // window resized
 $(window).resize(function () {
     setCurrentBreakpoint();
-    showElements(eval(`${section}_${bp}`));
-    // console.log(`${section}_${bp}`);
+    toggleElements(eval(`${section}_${bp}`));
 });
 
 $('.logo').click(function () {
-    showElements(eval(`home_${bp}`));
+    toggleElements(eval(`home_${bp}`));
 });
 
 // home button clicked
 $('.home a').click(function () {
     if (xs || sm) {
         if ($(this).attr('href').substr(1) == "explore") {
-            showElements(explore_xs);
+            toggleElements(explore_xs);
             setCurrentSection("explore");
         } else {
-            showElements(navigate_xs);
+            toggleElements(navigate_xs);
             setCurrentSection("explore");
         }
     } else if (md) {
-        showElements(navigate_md);
+        toggleElements(navigate_md);
         setCurrentSection("navigate");
     }
     else {
-        showElements(navigate_md);
+        toggleElements(navigate_md);
         setCurrentSection("navigate");
     }
 });
@@ -77,28 +76,28 @@ $('.explore a').click(function () {
     initMap(cities_list);
 
     if (xs || sm) {
-        showElements(navigate_xs);
+        toggleElements(navigate_xs);
         setCurrentSection("navigate");
     }
     else if (md) {
-        showElements(navigate_md);
+        toggleElements(navigate_md);
         setCurrentSection("navigate");
     } else {
         //lg
-        showElements(navigate_lg);
+        toggleElements(navigate_lg);
         setCurrentSection("navigate");
     }
 });
 
 function cityClicked(label) {
     if (xs || sm) {
-        showElements(discover_xs);
+        toggleElements(discover_xs);
     } else if (md) {
-        showElements(discover_md);
+        toggleElements(discover_md);
     }
     else {
         // lg
-        showElements(discover_lg);
+        toggleElements(discover_lg);
     }
     setCurrentSection("discover");
     $('.city-name').text(label);
@@ -130,30 +129,30 @@ $('.back-icon').click(function () {
     $('.city-search').val('');
     if (xs || sm) {
         if ($('.search-form').hasClass('d-none')) {
-            showElements(navigate_xs);
+            toggleElements(navigate_xs);
             setCurrentSection("navigate");
             addCityClusters();
-            if(!$('.venue').hasClass('d-none')) {
+            if (!$('.venue').hasClass('d-none')) {
                 hideVenue();
             };
         } else if ($('.discover').hasClass('d-none') && $('.explore').hasClass('d-none')) {
-            showElements(explore_xs);
+            toggleElements(explore_xs);
             setCurrentSection("explore");
         } else {
-            showElements(home_xs);
+            toggleElements(home_xs);
             setCurrentSection("home");
         }
     } else {
         // md or lg
         if (!$('.discover').hasClass('d-none')) {
-            showElements(navigate_md);
+            toggleElements(navigate_md);
             setCurrentSection("navigate");
             addCityClusters();
             if (!$('.venue').hasClass('d-none')) {
                 hideVenue();
             };
         } else {
-            showElements(home_xs);
+            toggleElements(home_xs);
             setCurrentSection("home");
         }
     }
@@ -165,18 +164,46 @@ function hideVenue() {
 
 function showElements(elements) {
     elements.forEach(function (elem) {
-        $('.' + elem).removeClass('d-none');
+        $("." + elem).removeClass('d-none');
     });
+};
+
+function hideElements(elements) {
+    elements.forEach(function (elem) {
+        $("." + elem).addClass('d-none');
+    });
+};
+
+function toggleElements(elements) {
     var to_hide = all_elements.filter(
         function (item) {
             return !elements.includes(item);
         }
     );
-    hideElements(to_hide);
-};
 
-function hideElements(elements) {
-    elements.forEach(function (elem) {
-        $('.' + elem).addClass('d-none');
-    })
+    if ((section === 'home' || section == 'explore') && (to_hide.includes('home') || to_hide.includes('explore'))) {
+
+        var animation = eval(`animation_${section}`);
+        // Fade out home
+        $('.' + section).addClass(animation).one(animationend, function () {
+
+            // On animation end
+            $(this).removeClass(animation);
+            // $(this).addClass('d-none');
+
+            // Hide elements
+            hideElements(to_hide);
+
+            // Show elements
+            showElements(elements);
+        });
+
+    } else {
+        // Hide elements
+        hideElements(to_hide);
+
+        // Show elements
+        showElements(elements);
+    };
+
 };

@@ -269,7 +269,8 @@ h5 {
 
 /*-----------------------------------General*/
 .site-wrapper {
-  overflow: hidden; }
+  overflow: hidden;
+  background-color: black; }
 
 a {
   color: inherit; }
