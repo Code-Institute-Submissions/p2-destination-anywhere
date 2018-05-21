@@ -25,12 +25,6 @@ You'll want help your users:
 - Find bars and restaurants
 - Provide search results in a manner that is visually appealing for your user (by drawing on the skills you have learned in User-Centric Frontend Development)
 
-**Create a Data Dashboard**
-
-- Build a data dashboard that visualizes a dataset of your choice
-- Your data can be stored locally (e.g., in a js file) or sourced from an API
-- Visualise your data using D3.js and dc.js
-
 
 ### Technologies and Dependencies
 
@@ -43,7 +37,8 @@ You'll want help your users:
 - - https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
 - [jQuery v3.3.1](https://jquery.com)
 - - https://code.jquery.com/jquery-3.3.1.min.js
-
+https://developers.google.com/maps/documentation/javascript/tutorial- [Google Maps API](https://developers.google.com/maps/documentation/javascript/tutorial)
+- [Animate.css](https://daneden.github.io/animate.css/)
 
 
 ### UXD
@@ -65,11 +60,11 @@ You'll want help your users:
 | Which features?                     | Explore - View cities list by country                       | View cities by country                                                    |
 |                                     | Navigate - Use the map to discover cities                   | Select city from dropdown                                                 |
 | What’s on the table?                | Discover - Browse attractions, accommodation and restaurants| Type city name into search box                                            |
-|                                     | Weather - View current weather data                         | Navigate to and select city using map                                     |
+|                                     | ~~Weather - View current weather data~~                     | Navigate to and select city using map                                     |
 |                                     |                                                             | Toggle tourist attractions, accommodation, bars and reataurants markers   |
 |                                     |                                                             | Display image and information for each venue                              |
 |                                     |                                                             | Display images and information for city                                   |
-|                                     |                                                             | Display weather charts                                                    |
+|                                     |                                                             | ~~Display weather charts~~                                                    |
 
 #### Structure
 
@@ -77,16 +72,16 @@ You'll want help your users:
 |-------------------------------------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
 | How is the information structured?  | Where am I? / How did I get here? / What can I do here? / Where can I go?    | Organizational / Navigational schemas (tree / nested list / hub and spoke / dashboard) |
 |                                     |                                                                              |                                                                                        |
-|                                     | Explore > Navigate > Discover > Venue / Weather                              | Tree                                                                                   |
+|                                     | Explore > Navigate > Discover > Venue                                        | Tree                                                                                   |
 | How is it logically grouped?        | Mobile: Buttons and chevron arrows move between various sections             |  |
-|                                     | Tablet and Desktop: Scroll to sections                                       |  |
+|                                     | Tablet and Desktop: Click to sections                                       |  |
 |                                     |  |  |
 
 #### Skeleton
 
 | Focus                                                       | Interface Design      | Navigational Design                             | Information Design  |
 |-------------------------------------------------------------|-----------------------|-------------------------------------------------|---------------------|
-| How will the information be represented?                    | See wireframes        | Explore > Navigate > Discover > Venue / Weather |                     |
+| How will the information be represented?                    | See wireframes        | Explore > Navigate > Discover > Venue           |                     |
 |                                                             |  |  |  |
 | How will the user navigate to the information and features? |  |  |  |
 |                                                             |  |  |  |
@@ -125,21 +120,20 @@ You'll want help your users:
 ![Mockup - Desktop](https://raw.githubusercontent.com/sarahloh/p2-destination-anywhere/master/assets/wireframes/mockup-desktop.jpg)
 
 ### Deployed to Github Pages
-<!--
+
 [https://sarahloh.github.io/p2-destination-anywhere/](https://sarahloh.github.io/p2-destination-anywhere/)
- -->
 
 ### Tests and Fixes
 
-<!--
-[**HTML Validator Results**](https://validator.w3.org/nu/?doc=https%3A%2F%2Fsarahloh.github.io%2Fp1-comeragh-equestrian%2F)
+[**HTML Validator Results**](https://validator.w3.org/nu/?doc=https%3A%2F%2Fsarahloh.github.io%2Fp2-destination-anywhere%2F)
 
-[**CSS Validator Results**](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fsarahloh.github.io%2Fp1-comeragh-equestrian%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
- -->
+[**CSS Validator Results**](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fsarahloh.github.io%2Fp2-destination-anywhere%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+
+
+<!--
 
 #### *Mobile*
 
-<!--
 Tested on iPhone 5 & 6
 
 ---
@@ -200,4 +194,4 @@ Tested on Chrome, Safari, Firefox
 
 ---
 
- -->
+-->
