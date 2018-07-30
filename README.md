@@ -6,7 +6,7 @@
 - [Technologies](#technologies-and-dependencies)
 - [UXD](#uxd)
 - [Wireframes](#wireframes-and-mockups)
-- [Github Pages](#deployed-to-github-pages)
+- [Deployment](#deployed-to-github-pages)
 - [Tests and Fixes](#tests-and-fixes)
 
 ### Project Brief
@@ -121,7 +121,9 @@ https://developers.google.com/maps/documentation/javascript/tutorial- [Google Ma
 
 ### Deployed to Github Pages
 
-[https://sarahloh.github.io/p2-destination-anywhere/](https://sarahloh.github.io/p2-destination-anywhere/)
+- Go to project repo settings on Github
+- Select master branch and click save
+- Project link: [https://sarahloh.github.io/p2-destination-anywhere/](https://sarahloh.github.io/p2-destination-anywhere/)
 
 ### Tests and Fixes
 
